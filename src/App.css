@@ -1,0 +1,154 @@
+.hfuel__body {
+  background-color: black;
+  padding-top: 50px;
+  width: 100%;
+}
+
+.hfuel__wallet {
+  text-align: center;
+}
+
+.hfuel__header {
+  width: 400px;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: white;
+  box-shadow: 0 0 20px rgb(49, 36, 110);
+  border-radius: 10px;
+  padding: 10px;
+  font-family: "Raleway", sans-serif;
+  font-weight: 700;
+  font-size: 24px;
+  text-align: center;
+}
+
+.hfuel__section1 {
+  width: 500px;
+  background-color: white;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 50px;
+  border-radius: 10px;
+  padding: 20px;
+  font-family: "Raleway", sans-serif;
+  font-size: 20px;
+}
+
+.hfuel__input {
+  width: 100%;
+  margin-top: 10px;
+}
+
+.hfuel__section2 {
+  width: 500px;
+  background-color: white;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 50px;
+  border-radius: 10px;
+  padding: 20px;
+  font-family: "Raleway", sans-serif;
+  font-size: 20px;
+}
+
+.footer {
+  background-color: white;
+  text-align: center;
+  padding: 20px;
+  font-family: "Raleway", sans-serif;
+  font-size: 20px;
+  margin-top: 50px;
+}
+
+.hfuel__section2__header {
+  font-weight: 700;
+  text-align: center;
+}
+
+.hfuel__headers {
+  font-weight: 700;
+  text-align: center;
+  font-family: "Raleway", sans-serif;
+  font-size: 20px;
+}
+
+.hfuel__contract {
+  margin-top: 30px;
+}
+
+.hfuel__head {
+  text-align: center;
+  font-weight: 700;
+  color: white;
+}
+
+.hfuel__detail {
+  text-align: center;
+  color: white;
+}
+
+.hfuel__inner__body {
+  background-color: rgb(43, 46, 46);
+  border-radius: 10px;
+  padding: 10px;
+  margin-bottom: 20px;
+}
+
+.hfuel-but {
+  display: block;
+  border: none;
+  border-radius: 10px;
+  background-color: rgb(41, 39, 39);
+  color: white;
+  width: 200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media (max-width: 500px) {
+  .hfuel__header {
+    width: 300px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: white;
+    box-shadow: 0 0 20px rgb(49, 36, 110);
+    border-radius: 10px;
+    padding: 10px;
+    font-family: "Raleway", sans-serif;
+    font-weight: 700;
+    font-size: 24px;
+    text-align: center;
+  }
+
+  .hfuel__section1 {
+    width: 300px;
+    background-color: white;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 50px;
+    border-radius: 10px;
+    padding: 20px;
+    font-family: "Raleway", sans-serif;
+    font-size: 20px;
+  }
+
+  .hfuel__section2 {
+    width: 300px;
+    background-color: white;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 50px;
+    border-radius: 10px;
+    padding: 20px;
+    font-family: "Raleway", sans-serif;
+    font-size: 20px;
+  }
+
+  .hfuel__wallet {
+    width: 300px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-align: center;
+  }
+}
