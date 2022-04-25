@@ -118,49 +118,57 @@ export default function Home() {
     setWallet(localStorage.getItem("hwall"));
 
     (async () => {
-      setLoading(true);
-      const info = await hfuelContract.contractInfo();
-      const detail = await axios.get(
-        "https://api.coingecko.com/api/v3/simple/price?ids=hfuel&vs_currencies=usd"
-      );
+      try {
+        setLoading(true);
+        const info = await hfuelContract.contractInfo();
+        const detail = await axios.get(
+          "https://api.coingecko.com/api/v3/simple/price?ids=hfuel&vs_currencies=usd"
+        );
 
-      const users = await hfuelContract.users(wallet);
-      const claimsAvailable = await hfuelContract.claimsAvailable(wallet);
-      const max = await hfuelContract.payoutOf(wallet);
-      const airdrop2 = await hfuelContract.airdrops(wallet);
-      console.log(users);
-      console.log(claimsAvailable);
-      console.log(max);
-      setAvailable(String(Number(BigNumber.from(claimsAvailable)) / 10 ** 18));
-      setUserAirDrop(
-        String(Number(BigNumber.from(airdrop2.airdrops_received)) / 10 ** 18)
-      );
-      setUserAirDrop2(
-        String(Number(BigNumber.from(airdrop2.airdrops)) / 10 ** 18)
-      );
-      setUserDeposit(String(Number(BigNumber.from(users.deposits)) / 10 ** 18));
-      setClaimed(String(Number(BigNumber.from(users.payouts)) / 10 ** 18));
-      setRolls(String(Number(BigNumber.from(users.rolls)) / 10 ** 18));
-      setRefferals(String(Number(BigNumber.from(users.referrals))));
-      setDb(String(Number(BigNumber.from(users.direct_bonus)) / 10 ** 18));
-      setMb(String(Number(BigNumber.from(users.match_bonus)) / 10 ** 18));
-      setMaxPay(String(Number(BigNumber.from(max.max_payout)) / 10 ** 18));
-      setUpline(String(users.upline));
+        const users = await hfuelContract.users(wallet);
+        const claimsAvailable = await hfuelContract.claimsAvailable(wallet);
+        const max = await hfuelContract.payoutOf(wallet);
+        const airdrop2 = await hfuelContract.airdrops(wallet);
+        console.log(users);
+        console.log(claimsAvailable);
+        console.log(max);
+        setAvailable(
+          String(Number(BigNumber.from(claimsAvailable)) / 10 ** 18)
+        );
+        setUserAirDrop(
+          String(Number(BigNumber.from(airdrop2.airdrops_received)) / 10 ** 18)
+        );
+        setUserAirDrop2(
+          String(Number(BigNumber.from(airdrop2.airdrops)) / 10 ** 18)
+        );
+        setUserDeposit(
+          String(Number(BigNumber.from(users.deposits)) / 10 ** 18)
+        );
+        setClaimed(String(Number(BigNumber.from(users.payouts)) / 10 ** 18));
+        setRolls(String(Number(BigNumber.from(users.rolls)) / 10 ** 18));
+        setRefferals(String(Number(BigNumber.from(users.referrals))));
+        setDb(String(Number(BigNumber.from(users.direct_bonus)) / 10 ** 18));
+        setMb(String(Number(BigNumber.from(users.match_bonus)) / 10 ** 18));
+        setMaxPay(String(Number(BigNumber.from(max.max_payout)) / 10 ** 18));
+        setUpline(String(users.upline));
 
-      const usd = detail.data.hfuel.usd;
-      setPrice(usd);
-      setUsers(String(Number(BigNumber.from(info._total_users))));
-      setTrx(String(Number(BigNumber.from(info._total_txs))));
-      setDeposit(
-        String(Number(BigNumber.from(info._total_deposited)) / 10 ** 18)
-      );
-      setWithdraw(
-        String(Number(BigNumber.from(info._total_withdraw)) / 10 ** 18)
-      );
-      setAirdrop(
-        String(Number(BigNumber.from(info._total_airdrops)) / 10 ** 18)
-      );
-      setLoading(false);
+        const usd = detail.data.hfuel.usd;
+        setPrice(usd);
+        setUsers(String(Number(BigNumber.from(info._total_users))));
+        setTrx(String(Number(BigNumber.from(info._total_txs))));
+        setDeposit(
+          String(Number(BigNumber.from(info._total_deposited)) / 10 ** 18)
+        );
+        setWithdraw(
+          String(Number(BigNumber.from(info._total_withdraw)) / 10 ** 18)
+        );
+        setAirdrop(
+          String(Number(BigNumber.from(info._total_airdrops)) / 10 ** 18)
+        );
+        setLoading(false);
+      } catch (err) {
+        setLoading(false);
+      }
     })();
   }, [wallet]);
 
@@ -181,7 +189,7 @@ export default function Home() {
         <section className="hfuel__section1">
           <div className="hfuel__headers">Wallet Manager</div>
           <div className="hfuel__wallet">
-            {wallet.slice(0, 5) + "....." + wallet.slice(-5, -1)}
+            {wallet ? wallet.slice(0, 5) + "....." + wallet.slice(-5, -1) : ""}
           </div>
           {wallet ? (
             <button
