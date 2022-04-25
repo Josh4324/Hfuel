@@ -71,47 +71,70 @@ export default function Home() {
       const claimsAvailable = await hfuelContract.claimsAvailable(wallet);
       const max = await hfuelContract.payoutOf(wallet);
       const airdrop2 = await hfuelContract.airdrops(wallet);
-      console.log(users);
-      console.log(claimsAvailable);
-      console.log(max);
-      console.log(airdrop2);
-      setAvailable(String(Number(BigNumber.from(claimsAvailable)) / 10 ** 18));
-      setUpline(String(users.upline));
-      setUserDeposit(String(Number(BigNumber.from(users.deposits)) / 10 ** 18));
-      setClaimed(String(Number(BigNumber.from(users.payouts)) / 10 ** 18));
-      setRolls(String(Number(BigNumber.from(users.rolls)) / 10 ** 18));
+
+      setAvailable(
+        String((Number(BigNumber.from(claimsAvailable)) / 10 ** 18).toFixed(2))
+      );
       setUserAirDrop(
-        String(Number(BigNumber.from(airdrop2.airdrops_received)) / 10 ** 18)
+        String(
+          (
+            Number(BigNumber.from(airdrop2.airdrops_received)) /
+            10 ** 18
+          ).toFixed(2)
+        )
       );
       setUserAirDrop2(
-        String(Number(BigNumber.from(airdrop2.airdrops)) / 10 ** 18)
+        String(
+          (Number(BigNumber.from(airdrop2.airdrops)) / 10 ** 18).toFixed(2)
+        )
+      );
+      setUserDeposit(
+        String((Number(BigNumber.from(users.deposits)) / 10 ** 18).toFixed(2))
+      );
+      setClaimed(
+        String((Number(BigNumber.from(users.payouts)) / 10 ** 18).toFixed(2))
+      );
+      setRolls(
+        String((Number(BigNumber.from(users.rolls)) / 10 ** 18).toFixed(2))
       );
       setRefferals(String(Number(BigNumber.from(users.referrals))));
-      setDb(String(Number(BigNumber.from(users.direct_bonus)) / 10 ** 18));
-      setMb(String(Number(BigNumber.from(users.match_bonus)) / 10 ** 18));
-      setMaxPay(String(Number(BigNumber.from(max.max_payout)) / 10 ** 18));
+      setDb(
+        String(
+          (Number(BigNumber.from(users.direct_bonus)) / 10 ** 18).toFixed(2)
+        )
+      );
+      setMb(
+        String(
+          (Number(BigNumber.from(users.match_bonus)) / 10 ** 18).toFixed(2)
+        )
+      );
+      setMaxPay(
+        String((Number(BigNumber.from(max.max_payout)) / 10 ** 18).toFixed(2))
+      );
+      setUpline(String(users.upline));
 
       const usd = detail.data.hfuel.usd;
       setPrice(usd);
       setUsers(String(Number(BigNumber.from(info._total_users))));
       setTrx(String(Number(BigNumber.from(info._total_txs))));
       setDeposit(
-        String(Number(BigNumber.from(info._total_deposited)) / 10 ** 18)
+        String(
+          (Number(BigNumber.from(info._total_deposited)) / 10 ** 18).toFixed(2)
+        )
       );
       setWithdraw(
-        String(Number(BigNumber.from(info._total_withdraw)) / 10 ** 18)
+        String(
+          (Number(BigNumber.from(info._total_withdraw)) / 10 ** 18).toFixed(2)
+        )
       );
       setAirdrop(
-        String(Number(BigNumber.from(info._total_airdrops)) / 10 ** 18)
+        String(
+          (Number(BigNumber.from(info._total_airdrops)) / 10 ** 18).toFixed(2)
+        )
       );
     }, 60000);
 
     return () => clearInterval(interval);
-
-    //const claims = await getContract.claimsAvailable(item.wallet);
-    //const result2 = await getContract.userInfo(item.wallet);
-    //const airdrop = await getContract.airdrops(item.wallet);
-    //const users = await getContract.users(item.wallet);
   }, [wallet]);
 
   useEffect(() => {
@@ -129,27 +152,48 @@ export default function Home() {
         const claimsAvailable = await hfuelContract.claimsAvailable(wallet);
         const max = await hfuelContract.payoutOf(wallet);
         const airdrop2 = await hfuelContract.airdrops(wallet);
-        console.log(users);
-        console.log(claimsAvailable);
-        console.log(max);
+
         setAvailable(
-          String(Number(BigNumber.from(claimsAvailable)) / 10 ** 18)
+          String(
+            (Number(BigNumber.from(claimsAvailable)) / 10 ** 18).toFixed(2)
+          )
         );
         setUserAirDrop(
-          String(Number(BigNumber.from(airdrop2.airdrops_received)) / 10 ** 18)
+          String(
+            (
+              Number(BigNumber.from(airdrop2.airdrops_received)) /
+              10 ** 18
+            ).toFixed(2)
+          )
         );
         setUserAirDrop2(
-          String(Number(BigNumber.from(airdrop2.airdrops)) / 10 ** 18)
+          String(
+            (Number(BigNumber.from(airdrop2.airdrops)) / 10 ** 18).toFixed(2)
+          )
         );
         setUserDeposit(
-          String(Number(BigNumber.from(users.deposits)) / 10 ** 18)
+          String((Number(BigNumber.from(users.deposits)) / 10 ** 18).toFixed(2))
         );
-        setClaimed(String(Number(BigNumber.from(users.payouts)) / 10 ** 18));
-        setRolls(String(Number(BigNumber.from(users.rolls)) / 10 ** 18));
+        setClaimed(
+          String((Number(BigNumber.from(users.payouts)) / 10 ** 18).toFixed(2))
+        );
+        setRolls(
+          String((Number(BigNumber.from(users.rolls)) / 10 ** 18).toFixed(2))
+        );
         setRefferals(String(Number(BigNumber.from(users.referrals))));
-        setDb(String(Number(BigNumber.from(users.direct_bonus)) / 10 ** 18));
-        setMb(String(Number(BigNumber.from(users.match_bonus)) / 10 ** 18));
-        setMaxPay(String(Number(BigNumber.from(max.max_payout)) / 10 ** 18));
+        setDb(
+          String(
+            (Number(BigNumber.from(users.direct_bonus)) / 10 ** 18).toFixed(2)
+          )
+        );
+        setMb(
+          String(
+            (Number(BigNumber.from(users.match_bonus)) / 10 ** 18).toFixed(2)
+          )
+        );
+        setMaxPay(
+          String((Number(BigNumber.from(max.max_payout)) / 10 ** 18).toFixed(2))
+        );
         setUpline(String(users.upline));
 
         const usd = detail.data.hfuel.usd;
@@ -157,13 +201,21 @@ export default function Home() {
         setUsers(String(Number(BigNumber.from(info._total_users))));
         setTrx(String(Number(BigNumber.from(info._total_txs))));
         setDeposit(
-          String(Number(BigNumber.from(info._total_deposited)) / 10 ** 18)
+          String(
+            (Number(BigNumber.from(info._total_deposited)) / 10 ** 18).toFixed(
+              2
+            )
+          )
         );
         setWithdraw(
-          String(Number(BigNumber.from(info._total_withdraw)) / 10 ** 18)
+          String(
+            (Number(BigNumber.from(info._total_withdraw)) / 10 ** 18).toFixed(2)
+          )
         );
         setAirdrop(
-          String(Number(BigNumber.from(info._total_airdrops)) / 10 ** 18)
+          String(
+            (Number(BigNumber.from(info._total_airdrops)) / 10 ** 18).toFixed(2)
+          )
         );
         setLoading(false);
       } catch (err) {
@@ -219,49 +271,84 @@ export default function Home() {
           <div className="hfuel__contract">
             <div className="hfuel__inner__body">
               <div className="hfuel__head">Available</div>
-              <div className="hfuel__detail">{available}</div>
+              <div className="hfuel__detail">
+                <NumberFormat
+                  value={available}
+                  displayType={"text"}
+                  thousandSeparator={true}
+                  decimalScale={2}
+                />
+              </div>
               <div className="hfuel__detail">
                 <NumberFormat
                   value={available * price}
                   displayType={"text"}
                   thousandSeparator={true}
                   prefix={"$"}
+                  decimalScale={2}
                 />
               </div>
             </div>
             <div className="hfuel__inner__body">
               <div className="hfuel__head">Deposited</div>
-              <div className="hfuel__detail">{userDeposit}</div>
+              <div className="hfuel__detail">
+                {" "}
+                <NumberFormat
+                  value={userDeposit}
+                  displayType={"text"}
+                  thousandSeparator={true}
+                  decimalScale={2}
+                />
+              </div>
               <div className="hfuel__detail">
                 <NumberFormat
                   value={userDeposit * price}
                   displayType={"text"}
                   thousandSeparator={true}
                   prefix={"$"}
+                  decimalScale={2}
                 />
               </div>
             </div>
             <div className="hfuel__inner__body">
               <div className="hfuel__head">Claimed</div>
-              <div className="hfuel__detail">{claimed}</div>
+              <div className="hfuel__detail">
+                {" "}
+                <NumberFormat
+                  value={claimed}
+                  displayType={"text"}
+                  thousandSeparator={true}
+                  decimalScale={2}
+                />
+              </div>
               <div className="hfuel__detail">
                 <NumberFormat
                   value={claimed * price}
                   displayType={"text"}
                   thousandSeparator={true}
                   prefix={"$"}
+                  decimalScale={2}
                 />
               </div>
             </div>
             <div className="hfuel__inner__body">
               <div className="hfuel__head">Max Payout</div>
-              <div className="hfuel__detail">{maxPay}</div>
+              <div className="hfuel__detail">
+                {" "}
+                <NumberFormat
+                  value={maxPay}
+                  displayType={"text"}
+                  thousandSeparator={true}
+                  decimalScale={2}
+                />
+              </div>
               <div className="hfuel__detail">
                 <NumberFormat
                   value={maxPay * price}
                   displayType={"text"}
                   thousandSeparator={true}
                   prefix={"$"}
+                  decimalScale={2}
                 />
               </div>
             </div>
@@ -285,6 +372,7 @@ export default function Home() {
                   displayType={"text"}
                   thousandSeparator={true}
                   prefix={"$"}
+                  decimalScale={2}
                 />
               </div>
             </div>
@@ -296,52 +384,87 @@ export default function Home() {
 
             <div className="hfuel__inner__body">
               <div className="hfuel__head">Direct Bonus</div>
-              <div className="hfuel__detail">{db}</div>
+              <div className="hfuel__detail">
+                {" "}
+                <NumberFormat
+                  value={db}
+                  displayType={"text"}
+                  thousandSeparator={true}
+                  decimalScale={2}
+                />
+              </div>
               <div className="hfuel__detail">
                 <NumberFormat
                   value={db * price}
                   displayType={"text"}
                   thousandSeparator={true}
                   prefix={"$"}
+                  decimalScale={2}
                 />
               </div>
             </div>
 
             <div className="hfuel__inner__body">
               <div className="hfuel__head">Match Bonus</div>
-              <div className="hfuel__detail">{mb}</div>
+              <div className="hfuel__detail">
+                {" "}
+                <NumberFormat
+                  value={mb}
+                  displayType={"text"}
+                  thousandSeparator={true}
+                  decimalScale={2}
+                />
+              </div>
               <div className="hfuel__detail">
                 <NumberFormat
                   value={mb * price}
                   displayType={"text"}
                   thousandSeparator={true}
                   prefix={"$"}
+                  decimalScale={2}
                 />
               </div>
             </div>
 
             <div className="hfuel__inner__body">
               <div className="hfuel__head">AirDrop Received (After Tax)</div>
-              <div className="hfuel__detail">{userAirdrop}</div>
+              <div className="hfuel__detail">
+                {" "}
+                <NumberFormat
+                  value={userAirdrop}
+                  displayType={"text"}
+                  thousandSeparator={true}
+                  decimalScale={2}
+                />
+              </div>
               <div className="hfuel__detail">
                 <NumberFormat
                   value={userAirdrop * price}
                   displayType={"text"}
                   thousandSeparator={true}
                   prefix={"$"}
+                  decimalScale={2}
                 />
               </div>
             </div>
 
             <div className="hfuel__inner__body">
               <div className="hfuel__head">AirDrop Sent (After Tax)</div>
-              <div className="hfuel__detail">{userAirdrop2}</div>
+              <div className="hfuel__detail">
+                <NumberFormat
+                  value={userAirdrop2}
+                  displayType={"text"}
+                  thousandSeparator={true}
+                  decimalScale={2}
+                />
+              </div>
               <div className="hfuel__detail">
                 <NumberFormat
                   value={userAirdrop2 * price}
                   displayType={"text"}
                   thousandSeparator={true}
                   prefix={"$"}
+                  decimalScale={2}
                 />
               </div>
             </div>
@@ -354,45 +477,82 @@ export default function Home() {
           <div className="hfuel__contract">
             <div className="hfuel__inner__body">
               <div className="hfuel__head">Users</div>
-              <div className="hfuel__detail">{users}</div>
+              <div className="hfuel__detail">
+                <NumberFormat
+                  value={users}
+                  displayType={"text"}
+                  thousandSeparator={true}
+                />
+              </div>
             </div>
             <div className="hfuel__inner__body">
               <div className="hfuel__head">Transactions</div>
-              <div className="hfuel__detail">{trx}</div>
+              <div className="hfuel__detail">
+                {" "}
+                <NumberFormat
+                  value={trx}
+                  displayType={"text"}
+                  thousandSeparator={true}
+                />
+              </div>
             </div>
             <div className="hfuel__inner__body">
               <div className="hfuel__head">Deposited</div>
-              <div className="hfuel__detail">{deposit}</div>
+              <div className="hfuel__detail">
+                <NumberFormat
+                  value={deposit}
+                  displayType={"text"}
+                  thousandSeparator={true}
+                  decimalScale={2}
+                />
+              </div>
               <div className="hfuel__detail">
                 <NumberFormat
                   value={deposit * price}
                   displayType={"text"}
                   thousandSeparator={true}
                   prefix={"$"}
+                  decimalScale={2}
                 />
               </div>
             </div>
             <div className="hfuel__inner__body">
               <div className="hfuel__head">Withdrawn</div>
-              <div className="hfuel__detail">{withdraw}</div>
+              <div className="hfuel__detail">
+                <NumberFormat
+                  value={withdraw}
+                  displayType={"text"}
+                  thousandSeparator={true}
+                  decimalScale={2}
+                />
+              </div>
               <div className="hfuel__detail">
                 <NumberFormat
                   value={withdraw * price}
                   displayType={"text"}
                   thousandSeparator={true}
                   prefix={"$"}
+                  decimalScale={2}
                 />
               </div>
             </div>
             <div className="hfuel__inner__body">
               <div className="hfuel__head">Airdrops</div>
-              <div className="hfuel__detail">{airdrop}</div>
+              <div className="hfuel__detail">
+                <NumberFormat
+                  value={airdrop}
+                  displayType={"text"}
+                  thousandSeparator={true}
+                  decimalScale={2}
+                />
+              </div>
               <div className="hfuel__detail">
                 <NumberFormat
                   value={airdrop * price}
                   displayType={"text"}
                   thousandSeparator={true}
                   prefix={"$"}
+                  decimalScale={2}
                 />
               </div>
             </div>
