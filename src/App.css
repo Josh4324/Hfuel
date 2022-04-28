@@ -1,3 +1,23 @@
+@font-face {
+  font-family: "Trueno";
+  src: local("TruenoBd"), url(./fonts/trueno/TruenoBd.otf) format("truetype");
+}
+
+@font-face {
+  font-family: "TruenoBlk";
+  src: local("TruenoBlk"), url(./fonts/trueno/TruenoBlk.otf) format("truetype");
+}
+
+@font-face {
+  font-family: "TruenoBlkOl";
+  src: local("TruenoBlkOl"),
+    url(./fonts/trueno/TruenoBlkOl.otf) format("truetype");
+}
+
+.none1 {
+  display: none;
+}
+
 .hfuel__body {
   background-color: black;
   padding-top: 50px;
@@ -151,5 +171,562 @@
     overflow: hidden;
     text-overflow: ellipsis;
     text-align: center;
+  }
+}
+
+.dash {
+  display: flex;
+}
+
+.dash__box {
+  text-align: center;
+  width: 300px;
+  height: 100%;
+  background-color: #001b31;
+  padding-top: 30px;
+  font-family: "Goldman";
+  font-style: normal;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.nav-item {
+  margin-top: 60px;
+}
+
+.wallet {
+  width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 96px;
+}
+
+.wallet__logo {
+  text-align: center;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 80px;
+}
+
+.wallet__kid {
+  text-align: center;
+  font-family: "Goldman";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 96px;
+  color: white;
+}
+.wallet__ref {
+  font-family: "Goldman";
+  text-align: center;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 48px;
+  color: white;
+}
+
+.wallet__box {
+  background: rgba(0, 56, 103, 0.198);
+  backdrop-filter: blur(180.6px);
+  width: 551px;
+  height: 352px;
+  border-radius: 30px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 56px;
+}
+
+.wallet__check {
+  font-family: "Trueno";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 20px;
+  color: white;
+  padding-bottom: 16px;
+}
+
+.wallet__inner {
+  padding-left: 37px;
+  padding-top: 122px;
+}
+
+.wallet__input {
+  background-color: #001b31;
+  padding-left: 10px;
+  width: 90%;
+  border-radius: 4px;
+  height: 64px;
+  border: none;
+  font-family: "Trueno";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  color: #ffffff;
+}
+
+.refinery {
+  margin-left: 200px;
+  margin-top: 168px;
+}
+
+.refinery__stat {
+  font-family: "Goldman";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 34px;
+  color: #ffffff;
+  display: flex;
+}
+
+.refinery__box {
+  background: rgba(196, 196, 196, 0.1);
+  border: 6.35px solid rgba(255, 255, 255, 0.2);
+  box-sizing: border-box;
+  backdrop-filter: blur(42.3333px);
+  width: 396px;
+  height: 300px;
+  padding-top: 38px;
+  margin-bottom: 30px;
+  margin-right: 20px;
+}
+
+.refinery__box3 {
+  background: rgba(196, 196, 196, 0.1);
+  border: 6.35px solid rgba(255, 255, 255, 0.2);
+  box-sizing: border-box;
+  backdrop-filter: blur(42.3333px);
+  width: 300px;
+  height: 250px;
+  padding-top: 38px;
+  margin-bottom: 30px;
+  margin-right: 20px;
+}
+
+.refinery__box4 {
+  background: rgba(196, 196, 196, 0.191);
+  backdrop-filter: blur(164.251px);
+  border-radius: 7px;
+  width: 229px;
+  height: 223px;
+  padding-top: 38px;
+  margin-bottom: 30px;
+  margin-right: 20px;
+}
+
+.refinery__box2 {
+  box-sizing: border-box;
+  width: 300px;
+  height: 300px;
+  padding-top: 38px;
+  margin-bottom: 30px;
+  margin-right: 20px;
+}
+
+.refinery__text1 {
+  font-family: "Trueno";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 48px;
+  color: white;
+  text-align: center;
+}
+
+.refinery__text11 {
+  font-family: "Trueno";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 48px;
+  color: white;
+  text-align: center;
+}
+
+.refinery__text2 {
+  font-family: "Trueno";
+  font-style: normal;
+  font-weight: 300;
+  font-size: 32px;
+  color: white;
+  text-align: center;
+}
+
+.refinery__text21 {
+  font-family: "Trueno";
+  font-style: normal;
+  font-weight: 300;
+  font-size: 32px;
+  color: white;
+  text-align: center;
+}
+
+.refinery__text3 {
+  text-align: center;
+  font-family: "Goldman";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+  color: white;
+  border-top: 2px solid #ff951c;
+  width: 160px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20px;
+}
+
+.refinery__text32 {
+  text-align: center;
+  font-family: "Goldman";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+  color: white;
+  width: 160px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20px;
+}
+
+.refinery__text31 {
+  text-align: center;
+  font-family: "Goldman";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+  color: white;
+  border-top: 2px solid #ff951c;
+  width: 160px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20px;
+}
+
+.refinery__text4 {
+  font-family: "Goldman";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+  color: white;
+  margin-top: 20px;
+}
+
+.text4 {
+  font-family: "Goldman";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 18px;
+  color: white;
+  margin-top: 20px;
+  text-align: center;
+  padding: 10px;
+  padding-bottom: 30px;
+}
+
+.refinery__flex {
+  margin-top: 24px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.refinery__flex2 {
+  margin-top: 24px;
+  display: flex;
+  flex-wrap: wrap;
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.refinery__img {
+  width: 100px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.active1 {
+  color: #edc764 !important;
+  text-decoration: none !important;
+}
+
+.active2 {
+  color: white !important;
+  text-decoration: none !important;
+}
+
+@media (max-width: 500px) {
+  .animation1 {
+    transform: translateX(0px);
+    transition: transform 1.5s;
+  }
+
+  .animation2 {
+    transform: translateX(-800px);
+    transition: transform 1.5s;
+  }
+
+  .dash__box {
+    text-align: center;
+    background-color: #001b31;
+    padding-top: 0px;
+    font-family: "Goldman";
+    font-style: normal;
+    font-weight: 700;
+    color: #ffffff;
+    display: block;
+    padding-left: 0px;
+    padding-bottom: 0px;
+    width: 100%;
+    height: 375px;
+    position: absolute;
+    top: 80px;
+    left: 0px;
+    z-index: 1;
+  }
+
+  .nav-item {
+    margin-top: 30px;
+  }
+
+  .refinery__box {
+    background: rgba(196, 196, 196, 0.1);
+    border: 6.35px solid rgba(255, 255, 255, 0.2);
+    box-sizing: border-box;
+    backdrop-filter: blur(42.3333px);
+    width: 300px;
+    height: 200px;
+    padding-top: 38px;
+    margin-bottom: 30px;
+    margin-right: 20px;
+  }
+
+  .refinery__box3 {
+    background: rgba(196, 196, 196, 0.1);
+    border: 6.35px solid rgba(255, 255, 255, 0.2);
+    box-sizing: border-box;
+    backdrop-filter: blur(42.3333px);
+    width: 300px;
+    height: 250px;
+    padding-top: 38px;
+    margin-bottom: 30px;
+    margin-right: 20px;
+  }
+
+  .refinery__box4 {
+    background: rgba(196, 196, 196, 0.191);
+    backdrop-filter: blur(164.251px);
+    border-radius: 7px;
+    width: 229px;
+    height: 223px;
+    padding-top: 38px;
+    margin-bottom: 30px;
+    margin-right: 20px;
+  }
+
+  .refinery__box2 {
+    box-sizing: border-box;
+    width: 300px;
+    height: 200px;
+    padding-top: 38px;
+    margin-bottom: 30px;
+    margin-right: 20px;
+  }
+
+  .refinery {
+    margin-left: 20px;
+    margin-top: 20px;
+  }
+
+  .refinery__flex {
+    margin-top: 24px;
+    display: flex;
+    flex-wrap: wrap;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .refinery__text1 {
+    font-family: "Trueno";
+    font-style: normal;
+    font-weight: 600;
+    font-size: 24px;
+    color: white;
+    text-align: center;
+  }
+
+  .refinery__text11 {
+    font-family: "Trueno";
+    font-style: normal;
+    font-weight: 600;
+    font-size: 24px;
+    color: white;
+    text-align: center;
+  }
+
+  .refinery__text2 {
+    font-family: "Trueno";
+    font-style: normal;
+    font-weight: 300;
+    font-size: 20px;
+    color: white;
+    text-align: center;
+  }
+
+  .refinery__text21 {
+    font-family: "Trueno";
+    font-style: normal;
+    font-weight: 300;
+    font-size: 20px;
+    color: white;
+    text-align: center;
+  }
+
+  .refinery__text3 {
+    text-align: center;
+    font-family: "Goldman";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 18px;
+    color: white;
+    border-top: 2px solid #ff951c;
+    width: 160px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+  }
+
+  .refinery__text32 {
+    text-align: center;
+    font-family: "Goldman";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 18px;
+    color: white;
+    width: 160px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+  }
+
+  .refinery__text31 {
+    text-align: center;
+    font-family: "Goldman";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 18px;
+    color: white;
+    border-top: 2px solid #ff951c;
+    width: 160px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+  }
+
+  .refinery__text4 {
+    font-family: "Goldman";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 18px;
+    color: white;
+    margin-top: 20px;
+  }
+
+  .none {
+    display: none;
+  }
+
+  .mobile-nav {
+    display: flex;
+    justify-content: space-between;
+  }
+  .ham {
+    width: 50px;
+    margin-right: 20px;
+  }
+
+  .mobile__logo {
+    width: 50px;
+  }
+
+  .wallet {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 96px;
+    padding-bottom: 30px;
+  }
+
+  .wallet__logo {
+    text-align: center;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 80px;
+  }
+
+  .wallet__kid {
+    text-align: center;
+    font-family: "Goldman";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 40px;
+    color: white;
+  }
+
+  .wallet__ref {
+    font-family: "Goldman";
+    text-align: center;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 30px;
+    color: white;
+  }
+
+  .wallet__box {
+    background: rgba(0, 56, 103, 0.198);
+    backdrop-filter: blur(180.6px);
+    width: 80%;
+    height: 352px;
+    border-radius: 30px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 56px;
+  }
+
+  .wallet__check {
+    font-family: "Trueno";
+    font-style: normal;
+    font-weight: 600;
+    font-size: 18px;
+    color: white;
+    padding-bottom: 16px;
+  }
+
+  .wallet__inner {
+    padding-left: 37px;
+    padding-top: 122px;
+  }
+
+  .wallet__input {
+    background-color: #001b31;
+    padding-left: 10px;
+    width: 90%;
+    border-radius: 4px;
+    height: 64px;
+    border: none;
+    font-family: "Trueno";
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    color: #ffffff;
+  }
+
+  .refinery__stat {
+    font-family: "Goldman";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    color: #ffffff;
+    display: flex;
+    padding-top: 20px;
   }
 }
