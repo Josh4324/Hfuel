@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Sidebar from "./Sidebar";
 import NumberFormat from "react-number-format";
 import Footer from "./Footer";
@@ -16,6 +16,12 @@ export default function Contract({
   const changeNav = () => {
     setToggle(!toggle);
   };
+  useEffect(() => {
+    const wallet = localStorage.getItem("hwall");
+    if (!wallet) {
+      window.location.href = "/";
+    }
+  }, []);
   return (
     <div>
       <div
