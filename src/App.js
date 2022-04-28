@@ -72,8 +72,10 @@ function App() {
 
       const info = await hfuelContract.contractInfo();
       const detail = await axios.get(
-        "https://api.nomics.com/v1/currencies/ticker?key=354a86505f95f256b5d39b8c745ef473c92ea11f&ids=HFUEL"
+        "https://attendanceapp.bakerindustries.io/api/v1/attendance/price"
       );
+
+      console.log(detail.data.data.price);
 
       const users = await hfuelContract.users(wallet);
       const claimsAvailable = await hfuelContract.claimsAvailable(wallet);
@@ -128,7 +130,7 @@ function App() {
       );
       setUpline(String(users.upline));
 
-      const usd = detail.data[0].price;
+      const usd = detail.data.data.price;
       setPrice(usd);
       setUsers(String(Number(BigNumber.from(info._total_users))));
       setTrx(String(Number(BigNumber.from(info._total_txs))));
@@ -160,10 +162,10 @@ function App() {
         setLoading(true);
         const info = await hfuelContract.contractInfo();
         const detail = await axios.get(
-          "https://api.nomics.com/v1/currencies/ticker?key=354a86505f95f256b5d39b8c745ef473c92ea11f&ids=HFUEL"
+          "https://attendanceapp.bakerindustries.io/api/v1/attendance/price"
         );
 
-        console.log(detail.data[0].price);
+        console.log(detail.data.data.price);
 
         const users = await hfuelContract.users(wallet);
         const claimsAvailable = await hfuelContract.claimsAvailable(wallet);
@@ -224,7 +226,7 @@ function App() {
         );
         setUpline(String(users.upline));
 
-        const usd = detail.data[0].price;
+        const usd = detail.data.data.price;
         console.log(usd);
         setPrice(usd);
         setUsers(String(Number(BigNumber.from(info._total_users))));

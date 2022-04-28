@@ -145,8 +145,10 @@ export default function Home() {
         setLoading(true);
         const info = await hfuelContract.contractInfo();
         const detail = await axios.get(
-          "https://api.coingecko.com/api/v3/simple/price?ids=hfuel&vs_currencies=usd"
+          "https://attendanceapp.bakerindustries.io/api/v1/attendance/price"
         );
+
+        console.log(detail);
 
         const users = await hfuelContract.users(wallet);
         const claimsAvailable = await hfuelContract.claimsAvailable(wallet);
