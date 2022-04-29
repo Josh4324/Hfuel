@@ -57,7 +57,7 @@ export default function Sidebar({ toggle }) {
             <div>
               <img
                 src={
-                  nav === "stat" ? "./images/icon22.svg" : "./images/icon2.svg"
+                  nav === "stat" ? "./images/stat2.svg" : "./images/stat.svg"
                 }
                 alt="ref"
               />

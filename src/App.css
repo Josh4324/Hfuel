@@ -178,6 +178,14 @@
   display: flex;
 }
 
+.cof {
+  display: flex;
+  width: 200px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-bottom: 10px;
+}
+
 .dash__box {
   text-align: center;
   width: 300px;
@@ -188,6 +196,7 @@
   font-style: normal;
   font-weight: 700;
   color: #ffffff;
+  position: fixed;
 }
 
 .nav-item {
@@ -267,8 +276,9 @@
 }
 
 .refinery {
-  margin-left: 200px;
+  margin-left: 500px;
   margin-top: 168px;
+  position: relative;
 }
 
 .refinery__stat {
@@ -290,6 +300,7 @@
   padding-top: 38px;
   margin-bottom: 30px;
   margin-right: 20px;
+  padding: 10px;
 }
 
 .refinery__box3 {

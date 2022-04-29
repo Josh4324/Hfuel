@@ -32,6 +32,7 @@ export default function Dashboard({
       style={{
         backgroundImage: `url("./images/bg3.jpg")`,
         backgroundSize: "cover",
+        display: "flex",
       }}
     >
       <Sidebar toggle={toggle} />
@@ -83,7 +84,7 @@ export default function Dashboard({
                     thousandSeparator={true}
                     decimalScale={2}
                   />{" "}
-                  HFUEL
+                  <br /> HFUEL
                 </div>
                 <div className="refinery__text2">
                   {" "}
@@ -106,6 +107,7 @@ export default function Dashboard({
                     thousandSeparator={true}
                     decimalScale={2}
                   />{" "}
+                  <br />
                   HFUEL
                 </div>
                 <div className="refinery__text2">
@@ -128,7 +130,7 @@ export default function Dashboard({
                     thousandSeparator={true}
                     decimalScale={2}
                   />{" "}
-                  HFUEL
+                  <br /> HFUEL
                 </div>
                 <div className="refinery__text2">
                   <NumberFormat
@@ -150,6 +152,7 @@ export default function Dashboard({
                     thousandSeparator={true}
                     decimalScale={2}
                   />{" "}
+                  <br />
                   HFUEL
                 </div>
                 <div className="refinery__text2">
@@ -171,10 +174,25 @@ export default function Dashboard({
                     thousandSeparator={true}
                     decimalScale={2}
                   />{" "}
-                  xHNW
+                  <br /> xHNW
                 </div>
                 <div className="refinery__text3" style={{ width: "200px" }}>
                   xHNW Balance
+                </div>
+                <div className="text4" style={{ color: "white" }}>
+                  {" "}
+                  Max Payout:
+                  {hnw < 50
+                    ? "255.5%"
+                    : hnw < 100
+                    ? "277.4%"
+                    : hnw < 150
+                    ? "299.3%"
+                    : hnw < 200
+                    ? "321.2%"
+                    : hnw < 250
+                    ? "343.1%"
+                    : "365.0%"}
                 </div>
               </div>
               <div className="refinery__box">
@@ -185,10 +203,25 @@ export default function Dashboard({
                     thousandSeparator={true}
                     decimalScale={2}
                   />{" "}
-                  xSK
+                  <br /> xSK
                 </div>
                 <div className="refinery__text3" style={{ width: "200px" }}>
                   xSK Balance
+                </div>
+                <div
+                  className="text4"
+                  style={{ color: "white", paddingBottom: "10px" }}
+                >
+                  Daily Return:
+                  {sk < 400
+                    ? "0.8%"
+                    : sk < 2000
+                    ? "0.9%"
+                    : sk < 10000
+                    ? "299.3%"
+                    : sk < 50000
+                    ? "1.1%"
+                    : "1.2%"}
                 </div>
               </div>
             </div>
