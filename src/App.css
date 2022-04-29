@@ -431,6 +431,7 @@
   text-align: center;
   padding: 10px;
   padding-bottom: 30px;
+  margin-left: 200px;
 }
 
 .refinery__flex {
@@ -514,7 +515,7 @@
     box-sizing: border-box;
     backdrop-filter: blur(42.3333px);
     width: 300px;
-    height: 200px;
+    height: 300px;
     padding-top: 38px;
     margin-bottom: 30px;
     margin-right: 20px;
@@ -750,5 +751,34 @@
     color: #ffffff;
     display: flex;
     padding-top: 20px;
+  }
+
+  .refinery__text4 {
+    width: 300px;
+    font-family: "Goldman";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 18px;
+    color: white;
+    margin-top: 20px;
+  }
+
+  .text4 {
+    font-family: "Goldman";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 18px;
+    color: white;
+    margin-top: 20px;
+    text-align: center;
+    padding: 0px;
+    padding-bottom: 30px;
+    margin-left: 0px;
+    inline-size: 300px;
+    overflow-wrap: break-word;
+    text-align: center;
+    width: 300px;
+    margin-left: auto;
+    margin-right: auto;
   }
 }

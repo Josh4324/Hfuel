@@ -194,6 +194,29 @@ export default function Dashboard({
                     ? "343.1%"
                     : "365.0%"}
                 </div>
+                {/*  <div className="" style={{ color: "white" }}>
+                  {" "}
+                  Team Referrals: Levels
+                  {hnw === 15 && hnw < 30
+                    ? "1"
+                    : hnw < 30
+                    ? "2"
+                    : hnw < 62
+                    ? "3"
+                    : hnw < 125
+                    ? "4"
+                    : hnw < 250
+                    ? "5"
+                    : hnw < 396
+                    ? "277.4%"
+                    : hnw < 588
+                    ? "299.3%"
+                    : hnw < 200
+                    ? "321.2%"
+                    : hnw < 250
+                    ? "343.1%"
+                    : "365.0%"}
+                </div> */}
               </div>
               <div className="refinery__box">
                 <div className="refinery__text1">

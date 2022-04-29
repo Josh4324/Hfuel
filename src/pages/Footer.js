@@ -3,7 +3,7 @@ import React from "react";
 export default function Footer() {
   return (
     <div>
-      <div className="text4" style={{ paddingLeft: "200px" }}>
+      <div className="text4">
         <div>
           <div className="cof">
             <img src="./images/cofeee.svg" className="" alt="ref" />
