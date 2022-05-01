@@ -72,10 +72,10 @@ function App() {
 
       const info = await hfuelContract.contractInfo();
       const detail = await axios.get(
-        "https://attendanceapp.bakerindustries.io/api/v1/attendance/price"
+        "https://api.pancakeswap.info/api/v2/tokens/0x157Ba4bBbb2bd7D59024143C2C9E08f6060717a6"
       );
 
-      console.log(detail.data.data.price);
+      console.log(detail);
 
       const users = await hfuelContract.users(wallet);
       const claimsAvailable = await hfuelContract.claimsAvailable(wallet);
@@ -162,10 +162,10 @@ function App() {
         setLoading(true);
         const info = await hfuelContract.contractInfo();
         const detail = await axios.get(
-          "https://attendanceapp.bakerindustries.io/api/v1/attendance/price"
+          "https://api.pancakeswap.info/api/v2/tokens/0x157Ba4bBbb2bd7D59024143C2C9E08f6060717a6"
         );
 
-        console.log(detail.data.data.price);
+        console.log(detail);
 
         const users = await hfuelContract.users(wallet);
         const claimsAvailable = await hfuelContract.claimsAvailable(wallet);
