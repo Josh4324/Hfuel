@@ -433,6 +433,10 @@
   padding-bottom: 30px;
 }
 
+.text4d {
+  margin-left: 200px;
+}
+
 .refinery__flex {
   margin-top: 24px;
   display: flex;
@@ -518,6 +522,10 @@
     padding-top: 38px;
     margin-bottom: 30px;
     margin-right: 20px;
+  }
+
+  .text4d {
+    margin-left: 0px;
   }
 
   .refinery__box3 {
