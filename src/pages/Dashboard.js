@@ -241,7 +241,7 @@ export default function Dashboard({
                     : sk < 2000
                     ? "0.9%"
                     : sk < 10000
-                    ? "299.3%"
+                    ? "1.0%"
                     : sk < 50000
                     ? "1.1%"
                     : "1.2%"}
