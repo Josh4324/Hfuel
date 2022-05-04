@@ -14,6 +14,7 @@ import hfuel from "./utils/hfuel.json";
 import xhnw from "./utils/xhnw.json";
 import xsk from "./utils/xsk.json";
 import axios from "axios";
+import Excel from "./pages/Excel";
 
 function App() {
   const provider = new ethers.providers.JsonRpcProvider(
@@ -307,6 +308,7 @@ function App() {
         />
         <Route exact path="/teams" element={<Teams />} />
         <Route exact path="/calc" element={<Calculator />} />
+        <Route exact path="/excel" element={<Excel />} />
       </Routes>
     </BrowserRouter>
   );
