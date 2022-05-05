@@ -262,7 +262,7 @@ export default function Excel() {
 
               <button
                 style={{ display: "block" }}
-                className="mt-4 button"
+                className="mt-4 button1"
                 onClick={ex}
                 variant="warning"
               >

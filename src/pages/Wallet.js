@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useRef, useEffect } from "react";
 import { BigNumber, ethers } from "ethers";
 
 export default function Wallet() {
@@ -17,6 +17,14 @@ export default function Wallet() {
       }
     }
   };
+
+  useEffect(() => {
+    const wallet = localStorage.getItem("hwall");
+    if (wallet) {
+      window.location.href = "/dashboard";
+    }
+  }, []);
+
   return (
     <div
       style={{
