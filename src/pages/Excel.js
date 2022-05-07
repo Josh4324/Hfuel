@@ -38,6 +38,7 @@ export default function Excel() {
     }
   }, []);
   const ex = async (evt) => {
+    setError("");
     evt.preventDefault();
     try {
       setLoading(true);
@@ -83,7 +84,7 @@ export default function Excel() {
         },
         // Column #2
         {
-          column: "Claims",
+          column: "Available",
           type: String,
           value: (item) => item.claims,
         },
@@ -118,6 +119,11 @@ export default function Excel() {
           column: "Upline",
           type: String,
           value: (item) => item.upline,
+        },
+        {
+          column: "Referrals",
+          type: String,
+          value: (item) => item.referrals,
         },
         /*  {
               column: "Downliners",
@@ -179,6 +185,7 @@ export default function Excel() {
                 rolls_ratio: ratio,
                 //down: lineText,
                 upline: String(users.upline),
+                referrals: String(Number(BigNumber.from(users.referrals))),
               };
 
               allData.push(obj);
