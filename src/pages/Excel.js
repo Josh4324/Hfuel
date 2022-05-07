@@ -39,6 +39,9 @@ export default function Excel() {
   }, []);
   const ex = async (evt) => {
     setError("");
+    if (!excelRef.current.files[0]) {
+      return setError("Please choose an excel file");
+    }
     evt.preventDefault();
     try {
       setLoading(true);
