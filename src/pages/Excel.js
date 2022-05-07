@@ -201,7 +201,7 @@ export default function Excel() {
             } catch (err) {
               setLoading(false);
               setError(
-                "An error occured, please check network and make sure your records does not exceed 60 items"
+                "An error occured, please try again, if error persists, reduce number of records"
               );
             }
 
