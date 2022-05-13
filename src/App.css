@@ -20,6 +20,14 @@
   border-radius: 5px;
 }
 
+.cal-but {
+  border: none;
+  background-color: #ff951c;
+  border-radius: 5px;
+  padding: 10px;
+  color: black;
+}
+
 .none1 {
   display: none;
 }
@@ -287,6 +295,12 @@
   position: relative;
 }
 
+.refinery2 {
+  margin-left: 250px;
+  margin-top: 168px;
+  position: relative;
+}
+
 .refinery__stat {
   font-family: "Goldman";
   font-style: normal;
@@ -294,6 +308,10 @@
   font-size: 34px;
   color: #ffffff;
   display: flex;
+}
+
+.refinery__stat2 {
+  margin-left: 100px;
 }
 
 .refinery__box {
@@ -449,6 +467,81 @@
   flex-wrap: wrap;
 }
 
+.refinery__flex1 {
+  margin-top: 24px;
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 30px;
+}
+
+.refinery__flex1__box {
+  width: 400px;
+  margin-left: 100px;
+}
+
+.refinery__flex2__box {
+  margin-left: 100px;
+  margin-top: 30px;
+  width: 530px;
+  padding: 30px;
+  background: rgba(196, 196, 196, 0.191);
+  backdrop-filter: blur(164.251px);
+  border-radius: 7px;
+}
+.refinery_flex1_text1 {
+  font-family: "Trueno";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 20px;
+  color: white;
+}
+
+.refinery_flex1_text2 {
+  font-family: "Goldman";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 32px;
+  color: #edc764;
+}
+
+.refinery_flex1_text3 {
+  font-family: "Goldman";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 24px;
+  color: white;
+}
+
+.refinery_flex1_text4 {
+  font-family: "Goldman";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 18px;
+  color: white;
+}
+
+.refinery_flex1_input {
+  background: #001b31;
+  border-radius: 4px;
+  width: 477px;
+  height: 64px;
+  font-family: "Raleway";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  color: white !important;
+  border: none;
+  margin-top: 16px;
+  padding-left: 16px;
+}
+
+.refinery_flex1_input::placeholder {
+  /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: white;
+  font-size: 14px;
+  opacity: 1; /* Firefox */
+}
+
 .refinery__flex2 {
   margin-top: 24px;
   display: flex;
@@ -456,6 +549,14 @@
   width: 80%;
   margin-left: auto;
   margin-right: auto;
+}
+
+.cal__box {
+  margin-bottom: 24px;
+}
+
+.cal__box2 {
+  margin-bottom: 24px;
 }
 
 .refinery__flex3 {
@@ -485,6 +586,47 @@
 }
 
 @media (max-width: 500px) {
+  .refinery2 {
+    margin-left: 10px;
+    margin-top: 10px;
+    position: relative;
+  }
+
+  .refinery__stat2 {
+    margin-left: 10px;
+    margin-right: 50px;
+    margin-top: 10px;
+  }
+
+  .refinery_flex1_input {
+    background: #001b31;
+    border-radius: 4px;
+    width: 90%;
+    height: 64px;
+    font-family: "Raleway";
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    color: white !important;
+    border: none;
+    margin-top: 16px;
+    padding-left: 16px;
+  }
+
+  .refinery__flex1__box {
+    width: 90%;
+    margin-left: 10px;
+  }
+
+  .refinery__flex2__box {
+    margin-left: 0px;
+    margin-top: 30px;
+    width: 90%;
+    padding: 30px;
+    background: rgba(196, 196, 196, 0.191);
+    backdrop-filter: blur(164.251px);
+    border-radius: 7px;
+  }
   .animation1 {
     transform: translateX(0px);
     transition: transform 1.5s;
@@ -507,7 +649,7 @@
     padding-left: 0px;
     padding-bottom: 0px;
     width: 100%;
-    height: 375px;
+    height: 430px;
     position: absolute;
     top: 80px;
     left: 0px;

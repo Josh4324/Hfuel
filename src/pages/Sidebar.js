@@ -15,6 +15,8 @@ export default function Sidebar({ toggle }) {
       setNav("teams");
     } else if (window.location.pathname === "/dashboard") {
       setNav("dash");
+    } else if (window.location.pathname === "/calc") {
+      setNav("calc");
     }
   }, []);
 
@@ -86,7 +88,7 @@ export default function Sidebar({ toggle }) {
             <div>Contract Stats</div>
           </div>
         </NavLink>
-        {/*  <NavLink
+        {/*   <NavLink
           to="/teams"
           className={(navigationData) =>
             navigationData.isActive ? "active1" : "active2"
@@ -103,7 +105,7 @@ export default function Sidebar({ toggle }) {
             </div>
             <div>Teams</div>
           </div>
-        </NavLink>
+        </NavLink> */}
         <NavLink
           to="/calc"
           className={(navigationData) =>
@@ -112,11 +114,14 @@ export default function Sidebar({ toggle }) {
         >
           <div className="nav-item">
             <div>
-              <img src="./images/icon3.svg" alt="ref" />
+              <img
+                src={nav === "calc" ? "./images/c.svg" : "./images/c11.svg"}
+                alt="ref"
+              />
             </div>
             <div>Calculator</div>
           </div>
-        </NavLink> */}
+        </NavLink>
         <div className="nav-item">
           <div>
             <img src="./images/del.svg" alt="ref" />

@@ -148,8 +148,6 @@ export default function Home() {
           "https://attendanceapp.bakerindustries.io/api/v1/attendance/price"
         );
 
-        console.log(detail);
-
         const users = await hfuelContract.users(wallet);
         const claimsAvailable = await hfuelContract.claimsAvailable(wallet);
         const max = await hfuelContract.payoutOf(wallet);

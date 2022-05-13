@@ -307,7 +307,7 @@ function App() {
           }
         />
         <Route exact path="/teams" element={<Teams />} />
-        <Route exact path="/calc" element={<Calculator />} />
+        <Route exact path="/calc" element={<Calculator price={price} />} />
         <Route exact path="/excel" element={<Excel />} />
       </Routes>
     </BrowserRouter>
