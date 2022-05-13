@@ -154,7 +154,7 @@ export default function Calculator({ price }) {
                   <div className="refinery_flex1_text1">Output Period</div>
                   <input
                     className="refinery_flex1_input"
-                    placeholder="0.00 Hfuel"
+                    placeholder="0"
                     onChange={(evt) => {
                       setOutputTime(evt.target.value);
                       setForecast(0);
@@ -166,7 +166,7 @@ export default function Calculator({ price }) {
                   <div className="refinery_flex1_text1">Refuel Periods</div>
                   <input
                     className="refinery_flex1_input"
-                    placeholder="0.00 Hfuel"
+                    placeholder="0"
                     onChange={(evt) => {
                       setRefuel(evt.target.value);
                       setForecast(0);
@@ -186,7 +186,7 @@ export default function Calculator({ price }) {
                   <div className="refinery_flex1_text1">xSK</div>
                   <input
                     className="refinery_flex1_input"
-                    placeholder="0.00 Hfuel"
+                    placeholder="0.00 xSK"
                     onChange={(evt) => {
                       setxSk(evt.target.value);
                       setForecast(0);
