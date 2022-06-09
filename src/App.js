@@ -18,7 +18,7 @@ import Excel from "./pages/Excel";
 
 function App() {
   const provider = new ethers.providers.JsonRpcProvider(
-    "https://speedy-nodes-nyc.moralis.io/40a88f8745bc01d3bb660792/bsc/mainnet"
+    "https://bsc-dataseed.binance.org/"
   );
 
   const signer = provider.getSigner(
