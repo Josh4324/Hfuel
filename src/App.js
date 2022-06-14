@@ -15,6 +15,7 @@ import xhnw from "./utils/xhnw.json";
 import xsk from "./utils/xsk.json";
 import axios from "axios";
 import Excel from "./pages/Excel";
+import Stake from "./pages/Stake";
 
 function App() {
   const provider = new ethers.providers.JsonRpcProvider(
@@ -309,6 +310,7 @@ function App() {
         <Route exact path="/teams" element={<Teams />} />
         <Route exact path="/calc" element={<Calculator price={price} />} />
         <Route exact path="/excel" element={<Excel />} />
+        <Route exact path="/stake" element={<Stake />} />
       </Routes>
     </BrowserRouter>
   );

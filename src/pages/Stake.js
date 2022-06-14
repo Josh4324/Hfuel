@@ -2,14 +2,14 @@ import React, { useState, useEffect, useRef } from "react";
 import Sidebar from "./Sidebar";
 import NumberFormat from "react-number-format";
 import Footer from "./Footer";
-import hfuel from "../utils/hfuel.json";
+import hfuel from "../utils/stake.json";
 import readXlsxFile from "read-excel-file";
 import writeXlsxFile from "write-excel-file";
 import { BigNumber, ethers } from "ethers";
 import axios from "axios";
 import { v4 as uuidv4 } from "uuid";
 
-export default function Excel() {
+export default function Stake() {
   const [toggle, setToggle] = useState(false);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
@@ -26,7 +26,7 @@ export default function Excel() {
   );
 
   const getContract = new ethers.Contract(
-    "0xc8A79838D91f0136672b94ec843978B6Fa6DF07D",
+    "0x429d2591387d730379d2E2cdf3cD1BC4BD438CF4",
     hfuel.abi,
     signer
   );
@@ -97,7 +97,23 @@ export default function Excel() {
           type: String,
           value: (item) => item.deposits,
         },
+        {
+          column: "7% of Deposits",
+          type: String,
+          value: (item) => item.percent,
+        },
+        {
+          column: "Faucet Claims",
+          type: String,
+          value: (item) => item.faucetClaims,
+        },
         // Column #4
+        {
+          column: "Rebase Claims",
+          type: String,
+          value: (item) => item.rebaseClaims,
+        },
+
         {
           column: "Payout",
           type: String,
@@ -150,20 +166,20 @@ export default function Excel() {
             });
           }
         });
-
+        console.log(addrList);
         addrList.map((item, index) => {
           (async () => {
             try {
-              const claims = await getContract.claimsAvailable(item.wallet);
-              const result2 = await getContract.userInfo(item.wallet);
-              const airdrop = await getContract.airdrops(item.wallet);
-              const users = await getContract.users(item.wallet);
-              let ratio = String(
-                Number(BigNumber.from(users.rolls)) /
-                  10 ** 18 /
-                  (Number(BigNumber.from(result2.payouts)) / 10 ** 18 -
-                    Number(BigNumber.from(users.rolls)) / 10 ** 18)
-              );
+              const accounting = await getContract.accounting(item.wallet);
+              const team = await getContract.team(item.wallet);
+
+              const dep =
+                Number(BigNumber.from(accounting.deposits)) / 10 ** 18;
+
+              const seven = dep * 0.07;
+              console.log(seven);
+              console.log(accounting);
+              console.log(team);
 
               const obj = {
                 name: item.name,
@@ -172,23 +188,26 @@ export default function Excel() {
                 wallet: item.wallet,
                 deposit_cr: String(item.deposit_cr),
                 initial_airdrop: item.initial_airdrop,
-                claims: String(Number(BigNumber.from(claims)) / 10 ** 18),
+
                 deposits: String(
-                  Number(BigNumber.from(result2.deposits)) / 10 ** 18
+                  Number(BigNumber.from(accounting.deposits)) / 10 ** 18
                 ),
-                payouts: String(
-                  Number(BigNumber.from(result2.payouts)) / 10 ** 18
-                ),
-                my_airdrop: String(
-                  Number(BigNumber.from(airdrop.airdrops)) / 10 ** 18
-                ),
+
+                percent: String(seven),
+
                 airdrop_received: String(
-                  Number(BigNumber.from(airdrop.airdrops_received)) / 10 ** 18
+                  Number(BigNumber.from(accounting.airdrops_rcv)) / 10 ** 18
                 ),
-                rolls_ratio: ratio,
-                //down: lineText,
-                upline: String(users.upline),
-                referrals: String(Number(BigNumber.from(users.referrals))),
+
+                //claims: String(Number(BigNumber.from(claims)) / 10 ** 18),
+                faucetClaims: String(
+                  Number(BigNumber.from(accounting.faucetClaims)) / 10 ** 18
+                ),
+                rebaseClaims: String(
+                  Number(BigNumber.from(accounting.rebaseClaims)) / 10 ** 18
+                ),
+                referrals: String(team.referrals),
+                upline: String(team.upline),
               };
 
               allData.push(obj);
@@ -202,6 +221,7 @@ export default function Excel() {
                 });
               }
             } catch (err) {
+              console.log(err);
               setLoading(false);
               setError(
                 "An error occured, please try again, if error persists, reduce number of records"
@@ -250,7 +270,7 @@ export default function Excel() {
               </div>
             </div>
             <div className="refinery__stat">
-              <div style={{ paddingRight: "10px" }}>HFUEL BATCH CONVERTER</div>{" "}
+              <div style={{ paddingRight: "10px" }}>STAKE BATCH CONVERTER</div>{" "}
               <div className="flame"></div>
             </div>
 
