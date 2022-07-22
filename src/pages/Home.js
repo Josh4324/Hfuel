@@ -8,7 +8,9 @@ export default function Home1() {
       <Header />
       <main>
         <section className="home-section1">
-          <div className="home-section1-head">Be your own bank & Do better</div>
+          <div className="home-section1-head">
+            Your Journey to Financial Freedom
+          </div>
           <div className="home-section1-text">
             Welcome to KeepItDefi! The home for vetted and trusted DEFI
             projects.
