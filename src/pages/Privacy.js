@@ -66,10 +66,11 @@ export default function Privacy() {
             information Users provide about themselves when sending out
             airdrops, bonuses, or rewards which we do to encourage team building
             and growing our community. <br /> <br /> We do not share this
-            information with any third-party. To send periodic emails We may use
-            the email address to send User information, development, and updates
-            on KeepItDeFi. It may also be used to respond to their inquiries,
-            questions, and/or other requests.
+            information with any third-party. <br />
+            To send periodic emails We may use the email address to send User
+            information, development, and updates on KeepItDeFi. It may also be
+            used to respond to their inquiries, questions, and/or other
+            requests.
           </div>
           <div className="privacy-section1-text2">
             How we protect your information
