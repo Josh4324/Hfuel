@@ -55,20 +55,21 @@ export default function Privacy() {
           </div>
           <div className="privacy-section1-text4">
             www.keepitdefi.io collect and use Users personal information for the
-            following purposes: To improve customer service The information you
-            provide helps us respond to your customer service requests and
-            support needs more efficiently. To personalize user experience We
-            may use information in the aggregate to understand how our Users as
-            a group use the services and resources provided on our Site. To
+            following purposes: <br />
+            To improve customer service The information you provide helps us
+            respond to your customer service requests and support needs more
+            efficiently. <br /> To personalize user experience We may use
+            information in the aggregate to understand how our Users as a group
+            use the services and resources provided on our Site. <br /> To
             improve our Site We may use the feedback you provide to improve our
-            products and services. To process payments We may use the
+            products and services. <br /> To process payments We may use the
             information Users provide about themselves when sending out
             airdrops, bonuses, or rewards which we do to encourage team building
-            and growing our community. We do not share this information with any
-            third-party. To send periodic emails We may use the email address to
-            send User information, development, and updates on KeepItDeFi. It
-            may also be used to respond to their inquiries, questions, and/or
-            other requests.
+            and growing our community. <br /> <br /> We do not share this
+            information with any third-party. To send periodic emails We may use
+            the email address to send User information, development, and updates
+            on KeepItDeFi. It may also be used to respond to their inquiries,
+            questions, and/or other requests.
           </div>
           <div className="privacy-section1-text2">
             How we protect your information
