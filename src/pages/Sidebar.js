@@ -7,15 +7,15 @@ export default function Sidebar({ toggle }) {
   let navigate = useNavigate();
 
   useEffect(() => {
-    if (window.location.pathname === "/stat") {
+    if (window.location.pathname === "/hfuel-stat") {
       setNav("stat");
-    } else if (window.location.pathname === "/contract") {
+    } else if (window.location.pathname === "/hfuel-contract") {
       setNav("contract");
-    } else if (window.location.pathname === "/teams") {
+    } else if (window.location.pathname === "/hfuel-teams") {
       setNav("teams");
-    } else if (window.location.pathname === "/dashboard") {
+    } else if (window.location.pathname === "/hfuel") {
       setNav("dash");
-    } else if (window.location.pathname === "/calc") {
+    } else if (window.location.pathname === "/hfuel-calc") {
       setNav("calc");
     }
   }, []);
@@ -31,7 +31,7 @@ export default function Sidebar({ toggle }) {
           <img src="./images/ref.svg" className="none" alt="ref" />
         </div>
         <NavLink
-          to="/dashboard"
+          to="/hfuel"
           className={(navigationData) =>
             navigationData.isActive ? "active1" : "active2"
           }
@@ -50,7 +50,7 @@ export default function Sidebar({ toggle }) {
         </NavLink>
 
         <NavLink
-          to="/stat"
+          to="/hfuel-stat"
           className={(navigationData) =>
             navigationData.isActive ? "active1" : "active2"
           }
@@ -69,7 +69,7 @@ export default function Sidebar({ toggle }) {
         </NavLink>
 
         <NavLink
-          to="/contract"
+          to="/hfuel-contract"
           className={(navigationData) =>
             navigationData.isActive ? "active1" : "active2"
           }
@@ -107,7 +107,7 @@ export default function Sidebar({ toggle }) {
           </div>
         </NavLink> */}
         <NavLink
-          to="/calc"
+          to="/hfuel-calc"
           className={(navigationData) =>
             navigationData.isActive ? "active1" : "active2"
           }

@@ -21,7 +21,7 @@ export default function Wallet() {
   useEffect(() => {
     const wallet = localStorage.getItem("hwall");
     if (wallet) {
-      window.location.href = "/dashboard";
+      window.location.href = "/hfuel";
     }
   }, []);
 

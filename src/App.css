@@ -1,3 +1,13 @@
+.dec-none-white {
+  text-decoration: none !important;
+  color: white;
+}
+
+.dec-none-white :hover {
+  text-decoration: none !important;
+  color: white;
+}
+
 @font-face {
   font-family: "Trueno";
   src: local("TruenoBd"), url(./fonts/trueno/TruenoBd.otf) format("truetype");

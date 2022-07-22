@@ -1,576 +1,255 @@
-import React, { useState, useEffect, useRef } from "react";
-import { BigNumber, ethers } from "ethers";
-import hfuel from "../utils/hfuel.json";
-import axios from "axios";
-import NumberFormat from "react-number-format";
+import React from "react";
+import Header from "../components/Header";
+import Footer from "../components/Footer";
 
-export default function Home() {
-  const provider = new ethers.providers.JsonRpcProvider(
-    "https://speedy-nodes-nyc.moralis.io/40a88f8745bc01d3bb660792/bsc/mainnet"
-  );
-
-  const signer = provider.getSigner(
-    "0x1443498Ef86df975D8A2b0B6a315fB9f49978998"
-  );
-
-  const hfuelContract = new ethers.Contract(
-    "0xc8A79838D91f0136672b94ec843978B6Fa6DF07D",
-    hfuel.abi,
-    signer
-  );
-
-  const [loading, setLoading] = useState(false);
-
-  const [users, setUsers] = useState(0);
-  const [trx, setTrx] = useState(0);
-  const [deposit, setDeposit] = useState(0);
-  const [withdraw, setWithdraw] = useState(0);
-  const [airdrop, setAirdrop] = useState(0);
-  const [price, setPrice] = useState(0);
-  const [wallet, setWallet] = useState("");
-  const [userAirdrop, setUserAirDrop] = useState(0);
-  const [userAirdrop2, setUserAirDrop2] = useState(0);
-
-  const [available, setAvailable] = useState(0);
-  const [userDeposit, setUserDeposit] = useState(0);
-  const [claimed, setClaimed] = useState(0);
-  const [maxPay, setMaxPay] = useState(0);
-  const [upline, setUpline] = useState("");
-  const [rolls, setRolls] = useState(0);
-  const [refferals, setRefferals] = useState(0);
-  const [db, setDb] = useState(0);
-  const [mb, setMb] = useState(0);
-
-  const walletRef = useRef("");
-
-  const walletEnter = () => {
-    let wall = walletRef.current.value;
-    if (wall.length === 42) {
-      if (ethers.utils.isAddress(wall) === false) {
-        window.alert("Incorrect wallet address");
-      } else {
-        localStorage.setItem("hwall", wall);
-        walletRef.current.value = "";
-        window.alert("Wallet Address Updated");
-        window.location.reload(true);
-      }
-    }
-  };
-
-  useEffect(() => {
-    setWallet(localStorage.getItem("hwall"));
-    const interval = setInterval(async () => {
-      console.log("Logs every minute");
-
-      const info = await hfuelContract.contractInfo();
-      const detail = await axios.get(
-        "https://api.coingecko.com/api/v3/simple/price?ids=hfuel&vs_currencies=usd"
-      );
-
-      const users = await hfuelContract.users(wallet);
-      const claimsAvailable = await hfuelContract.claimsAvailable(wallet);
-      const max = await hfuelContract.payoutOf(wallet);
-      const airdrop2 = await hfuelContract.airdrops(wallet);
-
-      setAvailable(
-        String((Number(BigNumber.from(claimsAvailable)) / 10 ** 18).toFixed(2))
-      );
-      setUserAirDrop(
-        String(
-          (
-            Number(BigNumber.from(airdrop2.airdrops_received)) /
-            10 ** 18
-          ).toFixed(2)
-        )
-      );
-      setUserAirDrop2(
-        String(
-          (Number(BigNumber.from(airdrop2.airdrops)) / 10 ** 18).toFixed(2)
-        )
-      );
-      setUserDeposit(
-        String((Number(BigNumber.from(users.deposits)) / 10 ** 18).toFixed(2))
-      );
-      setClaimed(
-        String((Number(BigNumber.from(users.payouts)) / 10 ** 18).toFixed(2))
-      );
-      setRolls(
-        String((Number(BigNumber.from(users.rolls)) / 10 ** 18).toFixed(2))
-      );
-      setRefferals(String(Number(BigNumber.from(users.referrals))));
-      setDb(
-        String(
-          (Number(BigNumber.from(users.direct_bonus)) / 10 ** 18).toFixed(2)
-        )
-      );
-      setMb(
-        String(
-          (Number(BigNumber.from(users.match_bonus)) / 10 ** 18).toFixed(2)
-        )
-      );
-      setMaxPay(
-        String((Number(BigNumber.from(max.max_payout)) / 10 ** 18).toFixed(2))
-      );
-      setUpline(String(users.upline));
-
-      const usd = detail.data.hfuel.usd;
-      setPrice(usd);
-      setUsers(String(Number(BigNumber.from(info._total_users))));
-      setTrx(String(Number(BigNumber.from(info._total_txs))));
-      setDeposit(
-        String(
-          (Number(BigNumber.from(info._total_deposited)) / 10 ** 18).toFixed(2)
-        )
-      );
-      setWithdraw(
-        String(
-          (Number(BigNumber.from(info._total_withdraw)) / 10 ** 18).toFixed(2)
-        )
-      );
-      setAirdrop(
-        String(
-          (Number(BigNumber.from(info._total_airdrops)) / 10 ** 18).toFixed(2)
-        )
-      );
-    }, 60000);
-
-    return () => clearInterval(interval);
-  }, [wallet]);
-
-  useEffect(() => {
-    setWallet(localStorage.getItem("hwall"));
-
-    (async () => {
-      try {
-        setLoading(true);
-        const info = await hfuelContract.contractInfo();
-        const detail = await axios.get(
-          "https://attendanceapp.bakerindustries.io/api/v1/attendance/price"
-        );
-
-        const users = await hfuelContract.users(wallet);
-        const claimsAvailable = await hfuelContract.claimsAvailable(wallet);
-        const max = await hfuelContract.payoutOf(wallet);
-        const airdrop2 = await hfuelContract.airdrops(wallet);
-
-        setAvailable(
-          String(
-            (Number(BigNumber.from(claimsAvailable)) / 10 ** 18).toFixed(2)
-          )
-        );
-        setUserAirDrop(
-          String(
-            (
-              Number(BigNumber.from(airdrop2.airdrops_received)) /
-              10 ** 18
-            ).toFixed(2)
-          )
-        );
-        setUserAirDrop2(
-          String(
-            (Number(BigNumber.from(airdrop2.airdrops)) / 10 ** 18).toFixed(2)
-          )
-        );
-        setUserDeposit(
-          String((Number(BigNumber.from(users.deposits)) / 10 ** 18).toFixed(2))
-        );
-        setClaimed(
-          String((Number(BigNumber.from(users.payouts)) / 10 ** 18).toFixed(2))
-        );
-        setRolls(
-          String((Number(BigNumber.from(users.rolls)) / 10 ** 18).toFixed(2))
-        );
-        setRefferals(String(Number(BigNumber.from(users.referrals))));
-        setDb(
-          String(
-            (Number(BigNumber.from(users.direct_bonus)) / 10 ** 18).toFixed(2)
-          )
-        );
-        setMb(
-          String(
-            (Number(BigNumber.from(users.match_bonus)) / 10 ** 18).toFixed(2)
-          )
-        );
-        setMaxPay(
-          String((Number(BigNumber.from(max.max_payout)) / 10 ** 18).toFixed(2))
-        );
-        setUpline(String(users.upline));
-
-        const usd = detail.data.hfuel.usd;
-        setPrice(usd);
-        setUsers(String(Number(BigNumber.from(info._total_users))));
-        setTrx(String(Number(BigNumber.from(info._total_txs))));
-        setDeposit(
-          String(
-            (Number(BigNumber.from(info._total_deposited)) / 10 ** 18).toFixed(
-              2
-            )
-          )
-        );
-        setWithdraw(
-          String(
-            (Number(BigNumber.from(info._total_withdraw)) / 10 ** 18).toFixed(2)
-          )
-        );
-        setAirdrop(
-          String(
-            (Number(BigNumber.from(info._total_airdrops)) / 10 ** 18).toFixed(2)
-          )
-        );
-        setLoading(false);
-      } catch (err) {
-        setLoading(false);
-      }
-    })();
-  }, [wallet]);
-
+export default function Home1() {
   return (
     <div>
-      <div className="hfuel__body">
-        <div className="hfuel__header">
-          <div>HFUEL OVERVIEW</div>
-          <div>Fast ~ Reliable ~ Secure</div>
-        </div>
-
-        {loading === true ? (
-          <div className="hfuel__section1">
-            <div>loading.............</div>
+      <Header />
+      <main>
+        <section className="home-section1">
+          <div className="home-section1-head">Be your own bank & Do better</div>
+          <div className="home-section1-text">
+            Welcome to KeepItDefi! The home for vetted and trusted DEFI
+            projects.
           </div>
-        ) : null}
-
-        <section className="hfuel__section1">
-          <div className="hfuel__headers">Wallet Manager</div>
-          <div className="hfuel__wallet">
-            {wallet ? wallet.slice(0, 5) + "....." + wallet.slice(-5, -1) : ""}
-          </div>
-          {wallet ? (
-            <button
-              className="hfuel-but"
-              onClick={() => {
-                localStorage.removeItem("hwall");
-                window.location.reload(true);
-              }}
-            >
-              Remove Wallet
-            </button>
-          ) : null}
-
           <div>
-            <input
-              className="hfuel__input"
-              placeholder="Enter your wallet address"
-              ref={walletRef}
-              onChange={walletEnter}
-            />
+            <img src="./images/v1.svg" className="pattern" alt="ref" />
           </div>
         </section>
+        <section className="home-section2">
+          <div className="home-section2-inner">
+            <div>
+              {" "}
+              <img src="./images/line1.svg" className="line" alt="ref" />
+            </div>
+            <div className="home-section2-main">
+              <div className="home-section2-text1">Who We Are</div>
+              <div className="home-section2-text2">
+                A growing community of DeFi Enthusiasts & Experts
+              </div>
+              <div className="home-section2-main-inner">
+                <div className="home-section2-text3">
+                  With over 860+ active members, KeepItDefi remains one of Top
+                  10 safe communities for DEFI Enthusiasts and Experts. The
+                  crypto market is volatile, so we do our best to provide
+                  low-risk projects that put everyone on the safe side where
+                  they can grow from point 0 to financial freedom.
+                </div>
+                <div>
+                  <div className="home-section2-text4">Community Members</div>
+                  <div className="home-section2-text5">860+</div>
+                </div>
+              </div>
+              <div className="prod">
+                <div>
+                  <div className="home-section2-text1">Products</div>
+                  <div className="home-section2-text5">3+</div>
+                </div>
+                <div>
+                  <div className="home-section2-text1">Users</div>
+                  <div className="home-section2-text5">700+</div>
+                </div>
+              </div>
+            </div>
+            <div>
+              {" "}
+              <img src="./images/line2.svg" className="line" alt="ref" />
+            </div>
+          </div>
+          <div className="home-card">
+            <div>
+              {" "}
+              <img src="./images/line3.svg" className="line" alt="ref" />
+            </div>
+            <div className="card1">
+              <div className="home-section2-text6">Our Ethics</div>
+              <div className="home-section2-text7">
+                Communoty First! We keep things simple and strictly DeFi. We
+                only engage with vetted projects, frown from fudding and play by
+                the community guidelines
+              </div>
+            </div>
+            <div className="card2">
+              <div className="home-section2-text6">Our Mission</div>
+              <div className="home-section2-text7">
+                Our mission at KeepItDefi is to build a strong community where
+                everyone can work together to build their way into financial
+                freedom.
+              </div>
+            </div>
+            <div>
+              {" "}
+              <img src="./images/line4.svg" className="line" alt="ref" />
+            </div>
+          </div>
+        </section>
+        <section className="home-section3">
+          <div className="home-section3-text1">Innovation at KeepitDefi</div>
+          <div className="home-section3-text2">Meet Our Team</div>
+          <div className="home-section3-text3">
+            Meet the amazing team behind the growth and innovation of KeepItDefi
+          </div>
 
-        <section className="hfuel__section2">
-          <div className="hfuel__headers">Refinery</div>
-
-          <div className="hfuel__contract">
-            <div className="hfuel__inner__body">
-              <div className="hfuel__head">Available</div>
-              <div className="hfuel__detail">
-                <NumberFormat
-                  value={available}
-                  displayType={"text"}
-                  thousandSeparator={true}
-                  decimalScale={2}
-                />
-              </div>
-              <div className="hfuel__detail">
-                <NumberFormat
-                  value={available * price}
-                  displayType={"text"}
-                  thousandSeparator={true}
-                  prefix={"$"}
-                  decimalScale={2}
-                />
-              </div>
+          <div className="staffs">
+            <div className="staff1">
+              <div className="home-section3-text4">@PholyBaker</div>
+              <div className="home-section3-text5">Founder</div>
             </div>
-            <div className="hfuel__inner__body">
-              <div className="hfuel__head">Deposited</div>
-              <div className="hfuel__detail">
-                {" "}
-                <NumberFormat
-                  value={userDeposit}
-                  displayType={"text"}
-                  thousandSeparator={true}
-                  decimalScale={2}
-                />
-              </div>
-              <div className="hfuel__detail">
-                <NumberFormat
-                  value={userDeposit * price}
-                  displayType={"text"}
-                  thousandSeparator={true}
-                  prefix={"$"}
-                  decimalScale={2}
-                />
-              </div>
+            <div className="staff2">
+              <div className="home-section3-text4">@Iziwa</div>
+              <div className="home-section3-text5">Community Manager</div>
             </div>
-            <div className="hfuel__inner__body">
-              <div className="hfuel__head">Claimed</div>
-              <div className="hfuel__detail">
-                {" "}
-                <NumberFormat
-                  value={claimed}
-                  displayType={"text"}
-                  thousandSeparator={true}
-                  decimalScale={2}
-                />
-              </div>
-              <div className="hfuel__detail">
-                <NumberFormat
-                  value={claimed * price}
-                  displayType={"text"}
-                  thousandSeparator={true}
-                  prefix={"$"}
-                  decimalScale={2}
-                />
-              </div>
+            <div className="staff3">
+              <div className="home-section3-text4">@Lulu</div>
+              <div className="home-section3-text5">Community Manager</div>
             </div>
-            <div className="hfuel__inner__body">
-              <div className="hfuel__head">Max Payout</div>
-              <div className="hfuel__detail">
-                {" "}
-                <NumberFormat
-                  value={maxPay}
-                  displayType={"text"}
-                  thousandSeparator={true}
-                  decimalScale={2}
-                />
-              </div>
-              <div className="hfuel__detail">
-                <NumberFormat
-                  value={maxPay * price}
-                  displayType={"text"}
-                  thousandSeparator={true}
-                  prefix={"$"}
-                  decimalScale={2}
-                />
-              </div>
+            <div className="staff4">
+              <div className="home-section3-text4">@Ivanaliku</div>
+              <div className="home-section3-text5">Content Manager</div>
             </div>
-
-            <div className="hfuel__inner__body">
-              <div className="hfuel__head">Upline</div>
-              <div
-                className="hfuel__detail"
-                style={{ textOverflow: "ellipsis" }}
+            <div className="staff5">
+              <div className="home-section3-text4">@Hon.Afo</div>
+              <div className="home-section3-text5">Community Manager</div>
+            </div>
+            <div className="staff6">
+              <div className="home-section3-text4">@josh_Ade</div>
+              <div className="home-section3-text5">Software Dev</div>
+            </div>
+          </div>
+        </section>
+        <section className="home-section4">
+          <div className="home-section4-text1">What We Do</div>
+          <div className="home-section4-text2">
+            Creating a borderless Decentralized Finance Community for everyone
+          </div>
+          <div className="home-section4-text3">
+            We do our due diligence by thoroughly reviewing projects before
+            sharing with our community We share and discuss vetted DeFi projects
+            from trusted Devs,who care about long term growth and the security
+            of investor funds on the blockchain, regardless of who they are or
+            where they come from.
+          </div>
+        </section>
+        <section className="home-section5">
+          <div className="card-proj1">
+            <div className="home-section5-text1">HFuel Refinery Calculator</div>
+            <div className="home-section5-text2">
+              <a href="/hfuel-home" target="_blank" style={{ color: "white" }}>
+                LINK TO HFUEL CALCULATOR
+              </a>
+            </div>
+          </div>
+          <div className="card-proj2">
+            <div className="home-section5-text1">HNW Price Bot</div>
+            <div className="home-section5-text2">
+              <a
+                href=" https://t.me/KeepitDefi_HNW_Price_update"
+                target="_blank"
+                style={{ color: "white" }}
               >
-                {upline}
+                LINK TO HFUEL PRICEBOT
+              </a>
+            </div>
+          </div>
+          <div className="card-proj3">
+            <div className="home-section5-text1">Stake Bot</div>
+            <div className="home-section5-text2">Coming Soon</div>
+          </div>
+        </section>
+        <section className="home-section6">
+          <div className="home-section61">
+            <div className="home-section6-text1">
+              Be part of the fastest growing community
+            </div>
+            <div className="home-section6-text2">
+              Connect with use across all our platforms to be a part of the
+              fastest growing DeFi community. Let our crypto communities direct
+              you to financial freedom.
+            </div>
+          </div>
+          <div className="home-section62">
+            <div className="home-section6-inner">
+              <div>
+                <a
+                  href="https://twitter.com/keepitdefi?t=yuQQKMLiHCzhjmWL-tjptA&s=09"
+                  target="_blank"
+                  style={{ color: "white", cursor: "pointer" }}
+                  rel="noreferrer"
+                >
+                  <img src="./images/twitter.svg" className="sc" alt="ref" />
+                </a>
+              </div>
+              <div className="home-section6-box">
+                <div className="home-section6-text3">
+                  <a
+                    href="https://twitter.com/keepitdefi?t=yuQQKMLiHCzhjmWL-tjptA&s=09"
+                    target="_blank"
+                    style={{ color: "white", cursor: "pointer" }}
+                    rel="noreferrer"
+                  >
+                    KiD Twitter
+                  </a>
+                </div>
+                <div className="home-section6-text4">
+                  We tweet harmoniously like birds. Never miss an update from us
+                  on Twitter
+                </div>
               </div>
             </div>
-
-            <div className="hfuel__inner__body">
-              <div className="hfuel__head">Rolls</div>
-              <div className="hfuel__detail">{rolls}</div>
-              <div className="hfuel__detail">
-                <NumberFormat
-                  value={rolls * price}
-                  displayType={"text"}
-                  thousandSeparator={true}
-                  prefix={"$"}
-                  decimalScale={2}
-                />
+            <div className="home-section6-inner">
+              <div>
+                <a
+                  href="https://t.me/keepitdefi"
+                  target="_blank"
+                  style={{ color: "white", cursor: "pointer" }}
+                  rel="noreferrer"
+                >
+                  <img src="./images/telegram.svg" className="sc" alt="ref" />
+                </a>
+              </div>
+              <div className="home-section6-box">
+                <div className="home-section6-text3">
+                  <a
+                    href="https://t.me/keepitdefi"
+                    target="_blank"
+                    style={{ color: "white", cursor: "pointer" }}
+                    rel="noreferrer"
+                  >
+                    KiD Telegram
+                  </a>
+                </div>
+                <div className="home-section6-text4">
+                  Engage and participate in interesting conversations.
+                  Learn,connect and grow with us
+                </div>
               </div>
             </div>
+            <div className="home-section6-inner">
+              <div>
+                <a
+                  href="https://t.me/keepitdefi"
+                  target="_blank"
+                  style={{ color: "white", cursor: "pointer" }}
+                  rel="noreferrer"
+                >
+                  <img src="./images/telegram.svg" className="sc" alt="ref" />
+                </a>
+              </div>
+              <div className="home-section6-box">
+                <div className="home-section6-text3">Baker Decentraciti</div>
+                <div className="home-section6-text4">
+                  A community to connect the physical and virtual worlds through
+                  Real Estate
+                </div>
 
-            <div className="hfuel__inner__body">
-              <div className="hfuel__head">Referrals</div>
-              <div className="hfuel__detail">{refferals}</div>
-            </div>
-
-            <div className="hfuel__inner__body">
-              <div className="hfuel__head">Direct Bonus</div>
-              <div className="hfuel__detail">
-                {" "}
-                <NumberFormat
-                  value={db}
-                  displayType={"text"}
-                  thousandSeparator={true}
-                  decimalScale={2}
-                />
-              </div>
-              <div className="hfuel__detail">
-                <NumberFormat
-                  value={db * price}
-                  displayType={"text"}
-                  thousandSeparator={true}
-                  prefix={"$"}
-                  decimalScale={2}
-                />
-              </div>
-            </div>
-
-            <div className="hfuel__inner__body">
-              <div className="hfuel__head">Match Bonus</div>
-              <div className="hfuel__detail">
-                {" "}
-                <NumberFormat
-                  value={mb}
-                  displayType={"text"}
-                  thousandSeparator={true}
-                  decimalScale={2}
-                />
-              </div>
-              <div className="hfuel__detail">
-                <NumberFormat
-                  value={mb * price}
-                  displayType={"text"}
-                  thousandSeparator={true}
-                  prefix={"$"}
-                  decimalScale={2}
-                />
-              </div>
-            </div>
-
-            <div className="hfuel__inner__body">
-              <div className="hfuel__head">AirDrop Received (After Tax)</div>
-              <div className="hfuel__detail">
-                {" "}
-                <NumberFormat
-                  value={userAirdrop}
-                  displayType={"text"}
-                  thousandSeparator={true}
-                  decimalScale={2}
-                />
-              </div>
-              <div className="hfuel__detail">
-                <NumberFormat
-                  value={userAirdrop * price}
-                  displayType={"text"}
-                  thousandSeparator={true}
-                  prefix={"$"}
-                  decimalScale={2}
-                />
-              </div>
-            </div>
-
-            <div className="hfuel__inner__body">
-              <div className="hfuel__head">AirDrop Sent (After Tax)</div>
-              <div className="hfuel__detail">
-                <NumberFormat
-                  value={userAirdrop2}
-                  displayType={"text"}
-                  thousandSeparator={true}
-                  decimalScale={2}
-                />
-              </div>
-              <div className="hfuel__detail">
-                <NumberFormat
-                  value={userAirdrop2 * price}
-                  displayType={"text"}
-                  thousandSeparator={true}
-                  prefix={"$"}
-                  decimalScale={2}
-                />
+                <div className="home-section6-text5 ">Coming Soon</div>
               </div>
             </div>
           </div>
         </section>
-
-        <section className="hfuel__section2">
-          <div className="hfuel__headers">Refinery Contract Statistics</div>
-
-          <div className="hfuel__contract">
-            <div className="hfuel__inner__body">
-              <div className="hfuel__head">Users</div>
-              <div className="hfuel__detail">
-                <NumberFormat
-                  value={users}
-                  displayType={"text"}
-                  thousandSeparator={true}
-                />
-              </div>
-            </div>
-            <div className="hfuel__inner__body">
-              <div className="hfuel__head">Transactions</div>
-              <div className="hfuel__detail">
-                {" "}
-                <NumberFormat
-                  value={trx}
-                  displayType={"text"}
-                  thousandSeparator={true}
-                />
-              </div>
-            </div>
-            <div className="hfuel__inner__body">
-              <div className="hfuel__head">Deposited</div>
-              <div className="hfuel__detail">
-                <NumberFormat
-                  value={deposit}
-                  displayType={"text"}
-                  thousandSeparator={true}
-                  decimalScale={2}
-                />
-              </div>
-              <div className="hfuel__detail">
-                <NumberFormat
-                  value={deposit * price}
-                  displayType={"text"}
-                  thousandSeparator={true}
-                  prefix={"$"}
-                  decimalScale={2}
-                />
-              </div>
-            </div>
-            <div className="hfuel__inner__body">
-              <div className="hfuel__head">Withdrawn</div>
-              <div className="hfuel__detail">
-                <NumberFormat
-                  value={withdraw}
-                  displayType={"text"}
-                  thousandSeparator={true}
-                  decimalScale={2}
-                />
-              </div>
-              <div className="hfuel__detail">
-                <NumberFormat
-                  value={withdraw * price}
-                  displayType={"text"}
-                  thousandSeparator={true}
-                  prefix={"$"}
-                  decimalScale={2}
-                />
-              </div>
-            </div>
-            <div className="hfuel__inner__body">
-              <div className="hfuel__head">Airdrops</div>
-              <div className="hfuel__detail">
-                <NumberFormat
-                  value={airdrop}
-                  displayType={"text"}
-                  thousandSeparator={true}
-                  decimalScale={2}
-                />
-              </div>
-              <div className="hfuel__detail">
-                <NumberFormat
-                  value={airdrop * price}
-                  displayType={"text"}
-                  thousandSeparator={true}
-                  prefix={"$"}
-                  decimalScale={2}
-                />
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <footer className="footer">
-          <div>KEEP IT DEFI</div>
-          <div>
-            <a href="https://t.me/keepitdefi" target="_blank" class="button">
-              <small>Join our Community</small>
-              <br />
-              @KeepItDefi
-            </a>
-          </div>
-          <div>All Rights Reserved 2022</div>
-        </footer>
-      </div>
+      </main>
+      <Footer />
     </div>
   );
 }

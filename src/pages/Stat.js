@@ -63,7 +63,7 @@ export default function Stat({
                 value={price}
                 displayType={"text"}
                 thousandSeparator={true}
-                decimalScale={2}
+                decimalScale={4}
               />
             </div>
             <div className="refinery__text4 none" style={{ width: "250px" }}>

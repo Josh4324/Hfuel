@@ -3,6 +3,11 @@ import { Route, Routes, BrowserRouter } from "react-router-dom";
 import Home from "./pages/Home";
 import "./App.css";
 import "./fire.css";
+import "./css/home.css";
+import "./css/project.css";
+import "./css/blog.css";
+import "./css/contact.css";
+import "./css/privacy.css";
 import Dashboard from "./pages/Dashboard";
 import Wallet from "./pages/Wallet";
 import Stat from "./pages/Stat";
@@ -11,11 +16,19 @@ import Teams from "./pages/Teams";
 import Calculator from "./pages/Calculator";
 import { BigNumber, ethers } from "ethers";
 import hfuel from "./utils/hfuel.json";
+import hfuelPrice from "./utils/hfuelPrice.json";
 import xhnw from "./utils/xhnw.json";
 import xsk from "./utils/xsk.json";
 import axios from "axios";
 import Excel from "./pages/Excel";
 import Stake from "./pages/Stake";
+import Home1 from "./pages/Home";
+import Project from "./pages/Project";
+import Blog from "./pages/Blog";
+import NotFound from "./pages/NotFound";
+import Contact from "./pages/Contact";
+import Privacy from "./pages/Privacy";
+import Disclaimer from "./pages/Disclaimer";
 
 function App() {
   const provider = new ethers.providers.JsonRpcProvider(
@@ -29,6 +42,12 @@ function App() {
   const hfuelContract = new ethers.Contract(
     "0xc8A79838D91f0136672b94ec843978B6Fa6DF07D",
     hfuel.abi,
+    signer
+  );
+
+  const hfuelPriceContract = new ethers.Contract(
+    "0x8196fd25e639fd57a6678d2143e86b7f023875be",
+    hfuelPrice.abi,
     signer
   );
 
@@ -71,6 +90,12 @@ function App() {
     setWallet(localStorage.getItem("hwall"));
     const interval = setInterval(async () => {
       console.log("Logs every minute");
+
+      const hfuelPriceDetail = await hfuelPriceContract.getReserves();
+
+      const hfuelR0 = Number(hfuelPriceDetail._reserve0);
+      const hfuelR1 = Number(hfuelPriceDetail._reserve1);
+      const hfuelP = Number(hfuelR1 / hfuelR0).toFixed(4);
 
       const info = await hfuelContract.contractInfo();
       const detail = await axios.get(
@@ -133,7 +158,7 @@ function App() {
       setUpline(String(users.upline));
 
       const usd = detail.data.data.price;
-      setPrice(usd);
+      setPrice(hfuelP);
       setUsers(String(Number(BigNumber.from(info._total_users))));
       setTrx(String(Number(BigNumber.from(info._total_txs))));
       setDeposit(
@@ -168,6 +193,11 @@ function App() {
         );
 
         console.log(detail);
+        const hfuelPriceDetail = await hfuelPriceContract.getReserves();
+
+        const hfuelR0 = Number(hfuelPriceDetail._reserve0);
+        const hfuelR1 = Number(hfuelPriceDetail._reserve1);
+        const hfuelP = Number(hfuelR1 / hfuelR0).toFixed(4);
 
         const users = await hfuelContract.users(wallet);
         const claimsAvailable = await hfuelContract.claimsAvailable(wallet);
@@ -230,7 +260,7 @@ function App() {
 
         const usd = detail.data.data.price;
         console.log(usd);
-        setPrice(usd);
+        setPrice(hfuelP);
         setUsers(String(Number(BigNumber.from(info._total_users))));
         setTrx(String(Number(BigNumber.from(info._total_txs))));
         setDeposit(
@@ -259,11 +289,17 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route exact path="/home" element={<Home />} />
-        <Route exact path="/" element={<Wallet />} />
+        <Route exact path="/" element={<Home />} />
+        <Route exact path="/home1" element={<Home1 />} />
+        <Route exact path="/project" element={<Project />} />
+        <Route exact path="/blog" element={<Blog />} />
+        <Route exact path="/contact" element={<Contact />} />
+        <Route exact path="/privacy" element={<Privacy />} />
+        <Route exact path="/disclaimer" element={<Disclaimer />} />
+        <Route exact path="/hfuel-home" element={<Wallet />} />
         <Route
           exact
-          path="/dashboard"
+          path="/hfuel"
           element={
             <Dashboard
               available={available}
@@ -279,7 +315,7 @@ function App() {
         />
         <Route
           exact
-          path="/stat"
+          path="/hfuel-stat"
           element={
             <Stat
               upline={upline}
@@ -294,8 +330,7 @@ function App() {
           }
         />
         <Route
-          exact
-          path="/contract"
+          path="/hfuel-contract"
           element={
             <Contract
               deposit={deposit}
@@ -307,10 +342,15 @@ function App() {
             />
           }
         />
-        <Route exact path="/teams" element={<Teams />} />
-        <Route exact path="/calc" element={<Calculator price={price} />} />
+        <Route exact path="/hfuel-teams" element={<Teams />} />
+        <Route
+          exact
+          path="/hfuel-calc"
+          element={<Calculator price={price} />}
+        />
         <Route exact path="/excel" element={<Excel />} />
         <Route exact path="/stake" element={<Stake />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </BrowserRouter>
   );

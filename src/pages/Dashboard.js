@@ -22,7 +22,7 @@ export default function Dashboard({
   useEffect(() => {
     const wallet = localStorage.getItem("hwall");
     if (!wallet) {
-      window.location.href = "/";
+      window.location.href = "/hfuel-home";
     }
   }, []);
 
@@ -66,7 +66,7 @@ export default function Dashboard({
                 value={price}
                 displayType={"text"}
                 thousandSeparator={true}
-                decimalScale={2}
+                decimalScale={4}
               />
             </div>
             {loading === true ? (

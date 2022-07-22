@@ -61,7 +61,7 @@ export default function Contract({
                 value={price}
                 displayType={"text"}
                 thousandSeparator={true}
-                decimalScale={2}
+                decimalScale={4}
               />
             </div>
             <div className="refinery__flex">

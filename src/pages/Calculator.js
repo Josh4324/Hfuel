@@ -131,7 +131,7 @@ export default function Calculator({ price }) {
                   value={price}
                   displayType={"text"}
                   thousandSeparator={true}
-                  decimalScale={2}
+                  decimalScale={4}
                 />
               </div>
             </div>
