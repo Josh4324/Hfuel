@@ -66,7 +66,11 @@ export default function Footer() {
               <div className="footer-text4">Privacy Policy</div>
             </Link>
           </div>
-          <Link to="/" className="dec-none-white">
+          <Link
+            to="//blog.keepitdefi.io/"
+            target="_blank"
+            className="dec-none-white"
+          >
             <div className="footer-text3">Blog</div>
           </Link>
           <Link to="/contact" className="dec-none-white">
@@ -90,7 +94,11 @@ export default function Footer() {
           <Link to="/project" className="dec-none-white">
             <div className="footer-text41">Project</div>
           </Link>
-          <Link to="/blog" className="dec-none-white">
+          <Link
+            to="//blog.keepitdefi.io/"
+            target="_blank"
+            className="dec-none-white"
+          >
             <div className="footer-text41">Blog</div>
           </Link>
           <Link to="/disclaimer" className="dec-none-white">

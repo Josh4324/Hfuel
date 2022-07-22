@@ -24,7 +24,11 @@ export default function Header() {
         <Link to="/project" className="dec-none-white navitem">
           <div>Projects</div>
         </Link>
-        <Link to="/" className="dec-none-white navitem">
+        <Link
+          to="//blog.keepitdefi.io/"
+          target="_blank"
+          className="dec-none-white navitem"
+        >
           <div>Blog</div>
         </Link>
         <Link to="/contact" className="dec-none-white navitem">
