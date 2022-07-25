@@ -1,8 +1,22 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
+import axios from "axios";
 
 export default function Home1() {
+  const [num, setNum] = useState(0);
+  const id = "5399911878:AAGvbFiruH9LkuxxO3518EaMANBFguWuQYs";
+  useEffect(() => {
+    const run = async () => {
+      const detail = await axios.get(
+        `https://api.telegram.org/bot${id}/getChatMembersCount?chat_id=@KeepitDeFi`
+      );
+      setNum(detail.data.result);
+    };
+
+    run();
+  }, []);
+
   return (
     <div>
       <Header />
@@ -32,7 +46,7 @@ export default function Home1() {
               </div>
               <div className="home-section2-main-inner">
                 <div className="home-section2-text3">
-                  With over 860+ active members, KeepItDefi remains one of Top
+                  With over {num} active members, KeepItDefi remains one of Top
                   10 safe communities for DEFI Enthusiasts and Experts. The
                   crypto market is volatile, so we do our best to provide
                   low-risk projects that put everyone on the safe side where
@@ -40,7 +54,7 @@ export default function Home1() {
                 </div>
                 <div>
                   <div className="home-section2-text4">Community Members</div>
-                  <div className="home-section2-text5">860+</div>
+                  <div className="home-section2-text5">{num}</div>
                 </div>
               </div>
               <div className="prod">
@@ -67,9 +81,9 @@ export default function Home1() {
             <div className="card1">
               <div className="home-section2-text6">Our Ethics</div>
               <div className="home-section2-text7">
-                Communoty First! We keep things simple and strictly DeFi. We
-                only engage with vetted projects, frown from fudding and play by
-                the community guidelines
+                Community First! We keep things simple and strictly DeFi. We
+                only engage with vetted projects, frown at fudding and We play
+                by our own rules.
               </div>
             </div>
             <div className="card2">

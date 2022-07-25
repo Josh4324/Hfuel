@@ -12,7 +12,7 @@ export default function Header() {
   return (
     <div className="header">
       <Link to="/" className="dec-none-white">
-        <img src="../images/kid.png" alt="" className="kid" />
+        <img src="../images/kid.svg" alt="" className="kid" />
       </Link>
       <div
         className={

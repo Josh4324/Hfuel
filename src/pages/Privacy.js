@@ -1,4 +1,5 @@
 import React from "react";
+import Footer from "../components/Footer";
 import Header from "../components/Header";
 
 export default function Privacy() {
@@ -8,9 +9,6 @@ export default function Privacy() {
       <main>
         <section className="privacy-section1">
           <div className="privacy-section1-text1">PRIVACY POLICY</div>
-          <div className="privacy-section1-text3">
-            Privacy Policy Note: This document was last updated on June 24, 2022
-          </div>
           <div className="privacy-section1-text2">
             This Privacy Policy governs the manner in which the KeepItDeFi Team
             collects, uses, maintains, and discloses information collected from
@@ -55,22 +53,38 @@ export default function Privacy() {
           </div>
           <div className="privacy-section1-text4">
             www.keepitdefi.io collect and use Users personal information for the
-            following purposes: <br />
-            To improve customer service The information you provide helps us
-            respond to your customer service requests and support needs more
-            efficiently. <br /> To personalize user experience We may use
-            information in the aggregate to understand how our Users as a group
-            use the services and resources provided on our Site. <br /> To
-            improve our Site We may use the feedback you provide to improve our
-            products and services. <br /> To process payments We may use the
-            information Users provide about themselves when sending out
-            airdrops, bonuses, or rewards which we do to encourage team building
-            and growing our community. <br /> <br /> We do not share this
-            information with any third-party. <br />
-            To send periodic emails We may use the email address to send User
-            information, development, and updates on KeepItDeFi. It may also be
-            used to respond to their inquiries, questions, and/or other
-            requests.
+            following purposes: <br /> <br />
+            <div className="privacy-section1-text2">
+              To improve customer service
+            </div>
+            <br />
+            The information you provide helps us respond to your customer
+            service requests and support needs more efficiently. <br /> <br />
+            <div className="privacy-section1-text2">
+              To personalize user experience
+            </div>
+            <br />
+            We may use information in the and resources provided on our Site.{" "}
+            <br /> <br />
+            <div className="privacy-section1-text2">To improve our Site</div>
+            <br />
+            We may use the feedback you provide to improve our products and
+            services. <br />
+            <br />
+            <div className="privacy-section1-text2"> To process payments</div>
+            <br />
+            We may use the information Users provide about themselves when
+            sending out airdrops, bonuses, or rewards which we do to encourage
+            team building and growing our community. <br /> <br /> We do not
+            share this information with any third-party. <br /> <br />
+            <div className="privacy-section1-text2">
+              {" "}
+              To send periodic emails
+            </div>
+            <br />
+            We may use the email address to send User information, development,
+            and updates on KeepItDeFi. It may also be used to respond to their
+            inquiries, questions, and/or other requests.
           </div>
           <div className="privacy-section1-text2">
             How we protect your information
@@ -86,7 +100,7 @@ export default function Privacy() {
             Changes to This Privacy Policy
           </div>
           <div className="privacy-section1-text4">
-            KEEPITDEFI has the discretion to update this privacy policy at any
+            KeepItDeFi has the discretion to update this privacy policy at any
             time. When we do, we will revise the updated date at the bottom of
             this page. We encourage Users to frequently check this page for any
             changes to stay informed about how we are helping to protect the
@@ -104,8 +118,13 @@ export default function Privacy() {
             of changes to this policy will be deemed your acceptance of those
             changes.
           </div>
+
+          <div className="privacy-section1-text3">
+            Privacy Policy Note: This document was last updated on June 24, 2022
+          </div>
         </section>
       </main>
+      <Footer />
     </div>
   );
 }
