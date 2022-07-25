@@ -46,11 +46,11 @@ export default function Home1() {
               </div>
               <div className="home-section2-main-inner">
                 <div className="home-section2-text3">
-                  With over {num} active members, KeepItDefi remains one of Top
-                  10 safe communities for DEFI Enthusiasts and Experts. The
-                  crypto market is volatile, so we do our best to provide
-                  low-risk projects that put everyone on the safe side where
-                  they can grow from point 0 to financial freedom.
+                  With {num} active members, KeepItDefi remains one of Top 10
+                  safe communities for DEFI Enthusiasts and Experts. The crypto
+                  market is volatile, so we do our best to provide low-risk
+                  projects that put everyone on the safe side where they can
+                  grow from point 0 to financial freedom.
                 </div>
                 <div>
                   <div className="home-section2-text4">Community Members</div>
