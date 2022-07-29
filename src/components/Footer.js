@@ -95,7 +95,9 @@ export default function Footer() {
             <Link to="/disclaimer" className="dec-none-white">
               <div className="footer-text4">Disclaimer</div>
             </Link>
-            <div className="footer-text4">Terms</div>
+            <Link to="/terms" className="dec-none-white">
+              <div className="footer-text4">Terms</div>
+            </Link>
             <Link to="/privacy" className="dec-none-white">
               <div className="footer-text4">Privacy Policy</div>
             </Link>
@@ -138,8 +140,9 @@ export default function Footer() {
           <Link to="/disclaimer" className="dec-none-white">
             <div className="footer-text41">Disclaimer</div>
           </Link>
-
-          <div className="footer-text41">Terms</div>
+          <Link to="/terms" className="dec-none-white">
+            <div className="footer-text41">Terms</div>
+          </Link>
           <Link to="/privacy" className="dec-none-white">
             <div className="footer-text41">Privacy Policy</div>
           </Link>

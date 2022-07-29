@@ -29,6 +29,7 @@ import NotFound from "./pages/NotFound";
 import Contact from "./pages/Contact";
 import Privacy from "./pages/Privacy";
 import Disclaimer from "./pages/Disclaimer";
+import Terms from "./pages/Terms";
 
 function App() {
   const provider = new ethers.providers.JsonRpcProvider(
@@ -295,6 +296,7 @@ function App() {
         <Route exact path="/blog" element={<Blog />} />
         <Route exact path="/contact" element={<Contact />} />
         <Route exact path="/privacy" element={<Privacy />} />
+        <Route exact path="/terms" element={<Terms />} />
         <Route exact path="/disclaimer" element={<Disclaimer />} />
         <Route exact path="/hfuel-home" element={<Wallet />} />
         <Route

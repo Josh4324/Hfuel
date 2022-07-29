@@ -55,23 +55,29 @@ export default function Privacy() {
             www.keepitdefi.io collect and use Users personal information for the
             following purposes: <br /> <br />
             <div className="privacy-section1-text2">
-              To improve customer service
+              i) To improve customer service
             </div>
             <br />
             The information you provide helps us respond to your customer
             service requests and support needs more efficiently. <br /> <br />
             <div className="privacy-section1-text2">
-              To personalize user experience
+              ii) To personalize user experience
             </div>
             <br />
             We may use information in the and resources provided on our Site.{" "}
             <br /> <br />
-            <div className="privacy-section1-text2">To improve our Site</div>
+            <div className="privacy-section1-text2">
+              {" "}
+              iii) To improve our Site
+            </div>
             <br />
             We may use the feedback you provide to improve our products and
             services. <br />
             <br />
-            <div className="privacy-section1-text2"> To process payments</div>
+            <div className="privacy-section1-text2">
+              {" "}
+              iv) To process payments
+            </div>
             <br />
             We may use the information Users provide about themselves when
             sending out airdrops, bonuses, or rewards which we do to encourage
@@ -79,7 +85,7 @@ export default function Privacy() {
             share this information with any third-party. <br /> <br />
             <div className="privacy-section1-text2">
               {" "}
-              To send periodic emails
+              v)To send periodic emails
             </div>
             <br />
             We may use the email address to send User information, development,
