@@ -23,10 +23,10 @@ export default function Home1() {
       <main>
         <section className="home-section1">
           <div className="home-section1-head">
-            Your Journey to Financial Freedom
+            On the journey to financial Freedom
           </div>
           <div className="home-section1-text">
-            Welcome to KeepItDefi! The home for vetted and trusted DEFI
+            Welcome to KeepitDeFi! The home for vetted and trusted DEFI
             projects.
           </div>
           <div>
@@ -46,18 +46,18 @@ export default function Home1() {
               </div>
               <div className="home-section2-main-inner">
                 <div className="home-section2-text3">
-                  With {num} active members, KeepItDefi remains one of Top 10
-                  safe communities for DEFI Enthusiasts and Experts. The crypto
-                  market is volatile, so we do our best to provide low-risk
-                  projects that put everyone on the safe side where they can
-                  grow from point 0 to financial freedom.
-                </div>
-                <div>
-                  <div className="home-section2-text4">Community Members</div>
-                  <div className="home-section2-text5">{num}</div>
+                  With {num} active members, KeepitDeFi remains one of the
+                  safest communities for DeFi Enthusiasts and Experts. Knowing
+                  how volatile the crypto market is, we do our due diligence
+                  before recommending projects. Our goal is to build a community
+                  where people can grow from point zero to financial freedom.
                 </div>
               </div>
               <div className="prod">
+                <div>
+                  <div className="home-section2-text1">Community Members</div>
+                  <div className="home-section2-text5">{num}</div>
+                </div>
                 <div>
                   <div className="home-section2-text1">Products</div>
                   <div className="home-section2-text5">3+</div>
@@ -81,15 +81,15 @@ export default function Home1() {
             <div className="card1">
               <div className="home-section2-text6">Our Ethics</div>
               <div className="home-section2-text7">
-                Community First! We keep things simple and strictly DeFi. We
-                only engage with vetted projects, frown at fudding and We play
-                by our own rules.
+                Community first! We keep things simple and strictly DeFi. We
+                only engage with internally vetted projects, frown at fudding
+                and we play by the community guidelines.
               </div>
             </div>
             <div className="card2">
               <div className="home-section2-text6">Our Mission</div>
               <div className="home-section2-text7">
-                Our mission at KeepItDefi is to build a strong community where
+                Our mission at KeepitDeFi is to build a strong community where
                 everyone can work together to build their way into financial
                 freedom.
               </div>
@@ -101,10 +101,10 @@ export default function Home1() {
           </div>
         </section>
         <section className="home-section3">
-          <div className="home-section3-text1">Innovation at KeepitDefi</div>
+          {/*  <div className="home-section3-text1">Innovation at KeepitDefi</div> */}
           <div className="home-section3-text2">Meet Our Team</div>
           <div className="home-section3-text3">
-            Meet the amazing team behind the growth and innovation of KeepItDefi
+            Meet the amazing team behind the growth and innovation of KeepitDeFi
           </div>
 
           <div className="staffs">
@@ -114,10 +114,6 @@ export default function Home1() {
             </div>
             <div className="staff2">
               <div className="home-section3-text4">@Iziwa</div>
-              <div className="home-section3-text5">Community Manager</div>
-            </div>
-            <div className="staff3">
-              <div className="home-section3-text4">@Lulu</div>
               <div className="home-section3-text5">Community Manager</div>
             </div>
             <div className="staff4">
@@ -140,11 +136,18 @@ export default function Home1() {
             Creating a borderless Decentralized Finance Community for everyone
           </div>
           <div className="home-section4-text3">
-            We do our due diligence by thoroughly reviewing projects before
-            sharing with our community We share and discuss vetted DeFi projects
-            from trusted Devs,who care about long term growth and the security
-            of investor funds on the blockchain, regardless of who they are or
-            where they come from.
+            We do our due diligence by thoroughly vetting projects before
+            sharing with our community. <br />
+            <br />
+            We share and discuss vetted DeFi projects from trusted Devs who care
+            about long term growth and the security of investors' funds on the
+            Blockchain.
+            <br />
+            <br />
+            In as much as we do our best to provide low-risk investment
+            opportunities, we do encourage the community to do their own
+            research as none of the contents shared will be considered financial
+            advice.
           </div>
         </section>
         <section className="home-section5">
@@ -179,7 +182,7 @@ export default function Home1() {
               Be part of the fastest growing community
             </div>
             <div className="home-section6-text2">
-              Connect with use across all our platforms to be a part of the
+              Connect with us across all our platforms to be a part of the
               fastest growing DeFi community. Let our crypto communities direct
               you to financial freedom.
             </div>

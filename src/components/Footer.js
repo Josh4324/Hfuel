@@ -1,9 +1,43 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { CopyToClipboard } from "react-copy-to-clipboard";
-
+import { HorizontalTicker } from "react-infinite-ticker";
+import NumberFormat from "react-number-format";
+import axios from "axios";
 export default function Footer() {
   const [copy, setCopy] = useState("");
+  const [bitcoin, setBitcoin] = useState(0);
+  const [eth, setEth] = useState(0);
+  const [binance, setBinance] = useState("");
+  useEffect(() => {
+    const run = async () => {
+      const detail = await axios.get(
+        `https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=usd`
+      );
+      const detail2 = await axios.get(
+        `https://api.coingecko.com/api/v3/simple/price?ids=ethereum&vs_currencies=usd`
+      );
+
+      const detail3 = await axios.get(
+        `https://api.coingecko.com/api/v3/simple/price?ids=binancecoin&vs_currencies=usd`
+      );
+
+      console.log(detail2);
+
+      setBitcoin(detail.data.bitcoin.usd);
+      setEth(detail2.data.ethereum.usd);
+      setBinance(detail3.data.binancecoin.usd);
+    };
+
+    run();
+
+    const interval = setInterval(run, 30000);
+
+    return () => {
+      clearInterval(interval);
+    };
+  }, []);
+
   return (
     <div>
       <hr className="footerhr" />
@@ -11,7 +45,7 @@ export default function Footer() {
         <div>
           <div className="footer-text1">Developed by KeepItDefi Team</div>
           <div className="footer-text2">
-            ©2022 KeepItDefi. All rights Reserved
+            &copy; 2022 KeepItDefi. All rights Reserved
           </div>
           <div className="social">
             <a
@@ -142,6 +176,53 @@ export default function Footer() {
             className="pointer"
           />
         </div>
+      </div>
+      <div style={{ backgroundColor: "#2135EC", padding: "20px" }}>
+        <HorizontalTicker easing="linear" duration={25000}>
+          <div className="boxs">
+            <img className="bitcoin" src="./images/btc.svg" alt="bitcoin" />
+            <div style={{ padding: "10px" }}>Bitcoin (BTC)</div>
+            <div style={{ paddingTop: "11px" }}>
+              {" "}
+              <NumberFormat
+                value={bitcoin}
+                displayType={"text"}
+                thousandSeparator={true}
+                decimalScale={4}
+                prefix={"$"}
+              />
+            </div>
+          </div>
+
+          <div className="boxs">
+            <img className="bitcoin" src="./images/eth.svg" alt="eth" />
+            <div style={{ padding: "10px" }}>Ethereum (ETH)</div>
+            <div style={{ paddingTop: "11px" }}>
+              {" "}
+              <NumberFormat
+                value={eth}
+                displayType={"text"}
+                thousandSeparator={true}
+                decimalScale={4}
+                prefix={"$"}
+              />
+            </div>
+          </div>
+          <div className="boxs">
+            <img className="bitcoin" src="./images/bnb.png" alt="eth" />
+            <div style={{ padding: "10px" }}>Binance (BNB)</div>
+            <div style={{ paddingTop: "11px" }}>
+              {" "}
+              <NumberFormat
+                value={binance}
+                displayType={"text"}
+                thousandSeparator={true}
+                decimalScale={4}
+                prefix={"$"}
+              />
+            </div>
+          </div>
+        </HorizontalTicker>
       </div>
     </div>
   );
