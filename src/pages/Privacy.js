@@ -126,7 +126,7 @@ export default function Privacy() {
           </div>
 
           <div className="privacy-section1-text3">
-            Privacy Policy Note: This document was last updated on June 24, 2022
+            Privacy Policy Note: This document was last updated on July 29, 2022
           </div>
         </section>
       </main>
