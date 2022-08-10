@@ -13,7 +13,7 @@ export default function Wallet() {
         localStorage.setItem("hwall", wall);
         walletRef.current.value = "";
         window.alert("Wallet Address Updated");
-        window.location.href = "/dashboard";
+        window.location.href = "/hfuel";
       }
     }
   };
