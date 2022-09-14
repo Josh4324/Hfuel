@@ -30,6 +30,8 @@ import Contact from "./pages/Contact";
 import Privacy from "./pages/Privacy";
 import Disclaimer from "./pages/Disclaimer";
 import Terms from "./pages/Terms";
+import { NotificationContainer } from "react-notifications";
+import "react-notifications/lib/notifications.css";
 
 function App() {
   const provider = new ethers.providers.JsonRpcProvider(
@@ -354,6 +356,7 @@ function App() {
         <Route exact path="/stake" element={<Stake />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
+      <NotificationContainer />
     </BrowserRouter>
   );
 }
