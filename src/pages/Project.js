@@ -191,7 +191,14 @@ export default function Project() {
           <div className="home-section62">
             <div className="home-section6-inner">
               <div>
-                <img src="./images/twitter.svg" className="sc" alt="ref" />
+                <a
+                  href="https://twitter.com/keepitdefi?t=yuQQKMLiHCzhjmWL-tjptA&s=09"
+                  target="_blank"
+                  style={{ color: "white", cursor: "pointer" }}
+                  rel="noreferrer"
+                >
+                  <img src="./images/twitter.svg" className="sc" alt="ref" />
+                </a>
               </div>
               <div className="home-section6-box">
                 <div className="home-section6-text3">KiD Twitter</div>
@@ -203,7 +210,14 @@ export default function Project() {
             </div>
             <div className="home-section6-inner">
               <div>
-                <img src="./images/telegram.svg" className="sc" alt="ref" />
+                <a
+                  href="https://t.me/keepitdefi"
+                  target="_blank"
+                  style={{ color: "white", cursor: "pointer" }}
+                  rel="noreferrer"
+                >
+                  <img src="./images/telegram.svg" className="sc" alt="ref" />
+                </a>
               </div>
               <div className="home-section6-box">
                 <div className="home-section6-text3">KiD Telegram</div>
@@ -215,7 +229,14 @@ export default function Project() {
             </div>
             <div className="home-section6-inner">
               <div>
-                <img src="./images/telegram.svg" className="sc" alt="ref" />
+                <a
+                  href="https://t.me/keepitdefi"
+                  target="_blank"
+                  style={{ color: "white", cursor: "pointer" }}
+                  rel="noreferrer"
+                >
+                  <img src="./images/telegram.svg" className="sc" alt="ref" />
+                </a>
               </div>
               <div className="home-section6-box">
                 <div className="home-section6-text3">Baker Decentraciti</div>
