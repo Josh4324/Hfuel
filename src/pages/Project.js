@@ -74,40 +74,7 @@ export default function Project() {
                 </a>
               </div>
             </div>
-            <div className="project-box">
-              <div>
-                <img src="./images/hfuel.png" className="project" alt="ref" />
-              </div>
-              <div className="project-section2-text1">Hfuel Refinery</div>
-              <div className="project-section2-text2">
-                <a
-                  href="https://hnwdefi.com/"
-                  target="_blank"
-                  style={{ color: "white", cursor: "pointer" }}
-                  rel="noreferrer"
-                >
-                  app.hnwdefi.com
-                  <img src="./images/point.svg" className="" alt="ref" />
-                </a>
-              </div>
-            </div>
-            <div className="project-box">
-              <div>
-                <img src="./images/stake.png" className="project" alt="ref" />
-              </div>
-              <div className="project-section2-text1">Stake Protocol</div>
-              <div className="project-section2-text2">
-                <a
-                  href="https://stakeprotocol.app/"
-                  target="_blank"
-                  style={{ color: "white", cursor: "pointer" }}
-                  rel="noreferrer"
-                >
-                  stakeprotocol.app
-                  <img src="./images/point.svg" className="" alt="ref" />
-                </a>
-              </div>
-            </div>
+
             <div className="project-box">
               <div>
                 <img src="./images/rex.png" className="project" alt="ref" />
